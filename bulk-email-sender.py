@@ -256,7 +256,7 @@ if __name__ == "__main__":
     )
     
     results = sender.send_bulk_emails(
-        csv_file='testing.csv',
+        csv_file=csv,
         subject='Advanced Records Management & Digital Transformation',
         html_template=html_template,
         text_template=text_template,
