@@ -234,7 +234,9 @@ if __name__ == "__main__":
     os.environ.clear()
     dotenv.load_dotenv()
     # TODO: change here
-    csv = "prospects-email-cleaned.csv"
+    # csv = "prospects-email-cleaned.csv"
+    # csv = "testing.csv"
+    csv = "governance-email-cleaned.csv"
     
     html_template = load_email_template("email-templates/Advanced-Records-Management.html")
     
@@ -262,7 +264,7 @@ if __name__ == "__main__":
         text_template=text_template,
         attachment_paths=attachments,
         personalize=True,
-        delay_base=1,
+        delay_base=6,
         max_emails_per_day=500
     )
     

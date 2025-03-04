@@ -1,6 +1,8 @@
 .venv
-emails.csv
+governance-emails.csv
 bulk-email-sender.log
 prospects-email.csv
 .env
 prospects-email-cleaned.csv
+prospects-email-cleaned-2.csv
+governance-email-cleaned.csv
