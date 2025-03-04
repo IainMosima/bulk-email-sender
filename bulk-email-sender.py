@@ -235,17 +235,20 @@ if __name__ == "__main__":
     dotenv.load_dotenv()
     # TODO: change here
     # csv = "prospects-email-cleaned.csv"
-    # csv = "testing.csv"
-    csv = "governance-email-cleaned.csv"
+    csv = "testing.csv"
+    # csv = "governance-email-cleaned.csv"
     
-    html_template = load_email_template("email-templates/Advanced-Records-Management.html")
+    # html_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.html")
+    html_template = load_email_template("email-templates/strategic-HR-managment/strategic-HR-managment.html")
     
-    text_template = load_email_template("email-templates/Advanced-Records-Management.txt")
+    # text_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.txt")
+    text_template = load_email_template("email-templates/strategic-HR-managment/strategic-HR-managment.txt")
     
     attachments = [
         "assets/company_profile.pdf",
         "assets/Ascent_Calendar_2025.pdf",
-        "assets/advanced-record-management/advanced records management & digital transformation workshop.jpeg"
+        # "assets/advanced-record-management/advanced records management & digital transformation workshop.jpeg",
+        # "assets/strategic-HR-managment/Strategic HR Management (Virtual Workshop) – March 18, 2025.pdf"
     ]
     
     sender = BulkEmailSender(
