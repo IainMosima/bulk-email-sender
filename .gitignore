@@ -1,4 +1,6 @@
 .venv
 emails.csv
 bulk-email-sender.log
+prospects-email.csv
 .env
+prospects-email-cleaned.csv
