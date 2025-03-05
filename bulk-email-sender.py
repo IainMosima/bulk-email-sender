@@ -234,19 +234,24 @@ if __name__ == "__main__":
     os.environ.clear()
     dotenv.load_dotenv()
     # TODO: change here
+    subject = "RE: Empowering Leadership: Invitation to the 21st Century Leadership Workshop"
     # csv = "prospects-email-cleaned.csv"
-    csv = "testing.csv"
-    # csv = "governance-email-cleaned.csv"
+    # csv = "testing.csv"
+    csv = "governance-email-cleaned.csv"
     
     # html_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.html")
-    html_template = load_email_template("email-templates/strategic-HR-managment/strategic-HR-managment.html")
+    # html_template = load_email_template("email-templates/strategic-HR-managment/strategic-HR-managment.html")
+    html_template = load_email_template("email-templates/21st-century-leadership/21st-century-leadership.html")
     
     # text_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.txt")
-    text_template = load_email_template("email-templates/strategic-HR-managment/strategic-HR-managment.txt")
+    # text_template = load_email_template("email-templates/strategic-HR-managment/strategic-HR-managment.txt")
+    text_template = load_email_template("email-templates/21st-century-leadership/21st-century-leadership.txt")
     
     attachments = [
         "assets/company_profile.pdf",
         "assets/Ascent_Calendar_2025.pdf",
+        "assets/21st-century-leadership/21ST-CENTURY-LEADERSHIP.pdf",
+        "assets/team-building-services.jpg"
         # "assets/advanced-record-management/advanced records management & digital transformation workshop.jpeg",
         # "assets/strategic-HR-managment/Strategic HR Management (Virtual Workshop) – March 18, 2025.pdf"
     ]
@@ -262,7 +267,7 @@ if __name__ == "__main__":
     
     results = sender.send_bulk_emails(
         csv_file=csv,
-        subject='Advanced Records Management & Digital Transformation',
+        subject=subject,
         html_template=html_template,
         text_template=text_template,
         attachment_paths=attachments,
