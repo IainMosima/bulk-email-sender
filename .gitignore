@@ -6,6 +6,7 @@ prospects-email.csv
 prospects-email-cleaned.csv
 prospects-email-cleaned-2.csv
 governance-email-cleaned.csv
+governance-email-cleaned-2.csv
 .env.it
 .env.pension
 .env.governance

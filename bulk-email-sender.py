@@ -329,9 +329,11 @@ if __name__ == "__main__":
     csv = None
     
     if args.env == 'pension':
-        csv = "prospects-email-cleaned.csv"
+        # csv = "prospects-email-cleaned.csv"
+        csv = "prospects-email-cleaned-2.csv"
     elif args.env == 'governance':
-        csv = "governance-email-cleaned.csv"
+        # csv = "governance-email-cleaned.csv"
+        csv = "governance-email-cleaned-2.csv"
     elif args.env == 'it':
         csv = "testing.csv"
     else:
