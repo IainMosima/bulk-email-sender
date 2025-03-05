@@ -8,7 +8,8 @@ from datetime import datetime
 import time
 import logging
 import dotenv
-
+import argparse
+from dotenv import load_dotenv
 
 # Set up logging
 # Create a console handler
@@ -230,30 +231,55 @@ def load_email_template(template_path):
         logging.error(f"Failed to load template: {e}")
         return None
 
-if __name__ == "__main__":
+def load_environment(env_name):
+    """Load environment variables from the specified .env file"""
     os.environ.clear()
-    dotenv.load_dotenv()
+    env_file = f".env.{env_name}"
+    if not os.path.exists(env_file):
+        print(f"Error: Environment file '{env_file}' does not exist")
+        print("Available environments: it, pension, governance")
+        exit(1)
+    
+    load_dotenv(env_file)
+    print(f"Loaded environment: {env_name}")
+    print(f"Sender: {os.getenv('SENDER_EMAIL')} ({os.getenv('SENDER_NAME')})")
+
+# Set up command line argument parsing
+parser = argparse.ArgumentParser(description='Bulk Email Sender')
+parser.add_argument('-e', '--env', 
+                    choices=['it', 'pension', 'governance'],
+                    default='it',
+                    help='Select the environment to use (default: it)')
+
+# Parse arguments
+args = parser.parse_args()
+# Load the selected environment
+load_environment(args.env)
+
+if __name__ == "__main__":
     # TODO: change here
-    subject = "RE: Empowering Leadership: Invitation to the 21st Century Leadership Workshop"
-    # csv = "prospects-email-cleaned.csv"
-    # csv = "testing.csv"
-    csv = "governance-email-cleaned.csv"
+    subject = "Invitation: Women in Corporate & Business Dinner – March 14th, 2025"
     
-    # html_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.html")
-    # html_template = load_email_template("email-templates/strategic-HR-managment/strategic-HR-managment.html")
-    html_template = load_email_template("email-templates/21st-century-leadership/21st-century-leadership.html")
+    csv = None
     
-    # text_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.txt")
-    # text_template = load_email_template("email-templates/strategic-HR-managment/strategic-HR-managment.txt")
-    text_template = load_email_template("email-templates/21st-century-leadership/21st-century-leadership.txt")
+    if args.env == 'pension':
+        csv = "prospects-email-cleaned.csv"
+    elif args.env == 'governance':
+        csv = "governance-email-cleaned.csv"
+    elif args.env == 'it':
+        csv = "testing.csv"
+    else:
+        print("Invalid environment")
+        exit(1)
+        
+    html_template = load_email_template("email-templates/women-in-business/women-in-business.html")
+    
+    text_template = load_email_template("email-templates/women-in-business/women-in-business.txt")
     
     attachments = [
         "assets/company_profile.pdf",
         "assets/Ascent_Calendar_2025.pdf",
-        "assets/21st-century-leadership/21ST-CENTURY-LEADERSHIP.pdf",
-        "assets/team-building-services.jpg"
-        # "assets/advanced-record-management/advanced records management & digital transformation workshop.jpeg",
-        # "assets/strategic-HR-managment/Strategic HR Management (Virtual Workshop) – March 18, 2025.pdf"
+        "assets/women-in-business-poster.jpeg"
     ]
     
     sender = BulkEmailSender(
