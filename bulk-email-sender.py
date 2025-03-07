@@ -251,7 +251,11 @@ class BulkEmailSender:
                 # Take a longer break after each batch
                 if (index + 1) % batch_size == 0:
                     logging.info(f"Taking a longer break after {batch_size} emails")
+                    self.disconnect()  # Disconnect before the break
                     time.sleep(random.uniform(300, 600))  # 5 to 10 minutes break
+                    if not self.connect():  # Reconnect after the break
+                        logging.error("Failed to reconnect to SMTP server after break")
+                        return results
             
             end_time = datetime.now()
             duration = (end_time - start_time).total_seconds()
@@ -259,7 +263,7 @@ class BulkEmailSender:
             logging.info(f"Results: {results['success']} successful, {results['failed']} failed, {results['skipped']} skipped")
             
             # Print a newline after the progress bar is done
-            print()
+            print("\n")
             
             summary = (
                 f"\nBulk email campaign completed:"

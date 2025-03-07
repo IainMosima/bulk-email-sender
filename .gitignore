@@ -10,3 +10,5 @@ governance-email-cleaned-2.csv
 .env.it
 .env.pension
 .env.governance
+governance-email-super-cleaned.csv
+prospects-email-super-cleaned.csv
