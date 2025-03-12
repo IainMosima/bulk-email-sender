@@ -346,9 +346,9 @@ if __name__ == "__main__":
         print("Invalid environment")
         exit(1)
         
-    html_template = load_email_template("email-templates/women-in-business/women-in-business-2.html")
+    html_template = load_email_template("email-templates/strategic-public-service-management-&-governance-workshop/strategic-public-service-management-&-governance-workshop.html")
     
-    text_template = load_email_template("email-templates/women-in-business/women-in-business-2.txt")
+    text_template = load_email_template("email-templates/strategic-public-service-management-&-governance-workshop/strategic-public-service-management-&-governance-workshop")
     
     attachments = [
         "assets/company_profile.pdf",
