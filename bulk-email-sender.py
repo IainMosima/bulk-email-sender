@@ -328,30 +328,32 @@ args = parser.parse_args()
 load_environment(args.env)
 
 if __name__ == "__main__":
-    subject = "Invitation: Women in Corporate & Business Dinner – March 14th, 2025"
+    subject = "RE: Strategic Public Service Management & Governance Workshop"
     
     csv = None
     
     if args.env == 'pension':
         # csv = "prospects-email-cleaned.csv"
-        csv = "prospects-email-cleaned-2.csv"
+        # csv = "prospects-email-cleaned-2.csv"
+        csv = "combined-emails-cleaned-2.csv"
     elif args.env == 'governance':
         # csv = "governance-email-cleaned.csv"
-        csv = "governance-email-cleaned-2.csv"
+        # csv = "governance-email-cleaned-2.csv"
+        csv = "combined-emails-cleaned.csv"
     elif args.env == 'it':
         csv = "testing.csv"
     else:
         print("Invalid environment")
         exit(1)
         
-    html_template = load_email_template("email-templates/women-in-business/women-in-business.html")
+    html_template = load_email_template("email-templates/women-in-business/women-in-business-2.html")
     
-    text_template = load_email_template("email-templates/women-in-business/women-in-business.txt")
+    text_template = load_email_template("email-templates/women-in-business/women-in-business-2.txt")
     
     attachments = [
         "assets/company_profile.pdf",
         "assets/Ascent_Calendar_2025.pdf",
-        "assets/women-in-business-poster.jpeg"
+        # "assets/women-in-business-poster.jpeg"
     ]
     
     sender = BulkEmailSender(

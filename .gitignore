@@ -12,3 +12,6 @@ governance-email-cleaned-2.csv
 .env.governance
 governance-email-super-cleaned.csv
 prospects-email-super-cleaned.csv
+emails-new.csv
+combined-emails-cleaned.csv
+combined-emails-cleaned-2.csv
