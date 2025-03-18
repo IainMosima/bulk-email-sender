@@ -328,7 +328,7 @@ args = parser.parse_args()
 load_environment(args.env)
 
 if __name__ == "__main__":
-    subject = "RE: Strategic Public Service Management & Governance Workshop"
+    subject = "Advanced Records Management & Digital Transformation - Date Updated"
     
     csv = None
     
@@ -339,21 +339,21 @@ if __name__ == "__main__":
     elif args.env == 'governance':
         # csv = "governance-email-cleaned.csv"
         # csv = "governance-email-cleaned-2.csv"
-        csv = "combined-emails-cleaned.csv"
+        csv = "combined-emails-cleaned-1.csv"
     elif args.env == 'it':
         csv = "testing.csv"
     else:
         print("Invalid environment")
         exit(1)
         
-    html_template = load_email_template("email-templates/strategic-public-service-management-&-governance-workshop/strategic-public-service-management-&-governance-workshop.html")
+    html_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.html")
     
-    text_template = load_email_template("email-templates/strategic-public-service-management-&-governance-workshop/strategic-public-service-management-&-governance-workshop")
+    text_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.txt")
     
     attachments = [
         "assets/company_profile.pdf",
         "assets/Ascent_Calendar_2025.pdf",
-        # "assets/women-in-business-poster.jpeg"
+        "assets/advanced-records-management-&-digital-transformation-workshop.jpg"
     ]
     
     sender = BulkEmailSender(
