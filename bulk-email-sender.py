@@ -1,16 +1,16 @@
-import pandas as pd
+import argparse
+import json
+import logging
+import os
+import random
 import smtplib
+import time
+from datetime import datetime
+from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.mime.application import MIMEApplication
-import os
-from datetime import datetime
-import time
-import logging
-import dotenv
-import argparse
-import random
-import json
+
+import pandas as pd
 from dotenv import load_dotenv
 
 # Set up logging
@@ -35,8 +35,9 @@ logger.setLevel(logging.INFO)
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
+
 class BulkEmailSender:
-    def __init__(self, smtp_server, smtp_port, username, password, sender_email, sender_name=None):        
+    def __init__(self, smtp_server, smtp_port, username, password, sender_email, sender_name=None):
         self.smtp_server = smtp_server
         self.smtp_port = smtp_port
         self.username = username
@@ -47,13 +48,13 @@ class BulkEmailSender:
         self.connection_attempts = 0
         self.max_connection_attempts = 3
         self.retry_delay = 60  # seconds
-    
+
     def connect(self):
         try:
             self.connection_attempts += 1
             self.session = smtplib.SMTP(self.smtp_server, self.smtp_port)
             self.session.ehlo()
-            self.session.starttls() # enable encryption
+            self.session.starttls()  # enable encryption
             self.session.ehlo()
             self.session.login(self.username, self.password)
             self.connection_attempts = 0  # Reset counter on successful connection
@@ -62,28 +63,29 @@ class BulkEmailSender:
             logging.error(f"Failed to connect to SMTP server: {e}")
             return False
         return True
-    
+
     def disconnect(self):
         if self.session:
             self.session.quit()
             self.session = None
             logging.info("Disconnected from SMTP server")
-    
-    def create_message(self, recipient_email, subject, html_content, text_content=None, attachment_paths=None, cc=None, bcc=None):
+
+    def create_message(self, recipient_email, subject, html_content, text_content=None, attachment_paths=None, cc=None,
+                       bcc=None):
         msg = MIMEMultipart("alternative")
         msg["subject"] = subject
         msg["From"] = f"{self.sender_name} <{self.sender_email}>"
         msg["To"] = recipient_email
-        
+
         if cc:
             msg["Cc"] = cc
         if bcc:
             msg["Bcc"] = bcc
-        
+
         if text_content:
             msg.attach(MIMEText(text_content, "plain"))
         msg.attach(MIMEText(html_content, "html"))
-        
+
         if attachment_paths:
             for file_path in attachment_paths:
                 if os.path.exists(file_path):
@@ -93,9 +95,9 @@ class BulkEmailSender:
                         msg.attach(attachment)
                 else:
                     logging.warning(f"Attachment not found: {file_path}")
-        
+
         return msg
-    
+
     def check_gmail_block(self, error_message):
         """Check if the error might be related to Gmail's temporary block"""
         block_indicators = [
@@ -109,24 +111,24 @@ class BulkEmailSender:
             "account was disabled",
             "try again later"
         ]
-        
+
         error_str = str(error_message).lower()
         for indicator in block_indicators:
             if indicator in error_str:
                 return True
         return False
-    
+
     def send_email(self, msg, recipient_email, cc=None, bcc=None):
         if not self.session:
             if not self.connect():
                 return False
-        
+
         recipients = [recipient_email]
         if cc:
             recipients.extend(cc)
         if bcc:
             recipients.extend(bcc)
-        
+
         try:
             self.session.send_message(msg, self.sender_email, recipients)
             logging.info(f"Email sent to {recipient_email}")
@@ -139,9 +141,9 @@ class BulkEmailSender:
                 return "BLOCKED"
             logging.error(f"Failed to send email to {recipient_email}: {e}")
             return False
-    
-    def send_bulk_emails(self, csv_file, subject, html_template, text_template=None, attachment_paths=None, 
-                         personalize=True, delay_base=1, max_emails_per_day=450, 
+
+    def send_bulk_emails(self, csv_file, subject, html_template, text_template=None, attachment_paths=None,
+                         personalize=True, delay_base=1, max_emails_per_day=450,
                          batch_size=20, resume_from=0, save_state=True):
         """
         Send bulk emails with more human-like patterns and throttling
@@ -154,17 +156,17 @@ class BulkEmailSender:
         if not self.session:
             if not self.connect():
                 return False
-                
+
         results = {"success": 0, "failed": 0, "skipped": 0}
         try:
-            df = pd.read_csv(csv_file)    
-            
+            df = pd.read_csv(csv_file)
+
             if "Emails" not in df.columns:
                 logging.error("Invalid csv file, must contain an `Emails` column")
                 return False
-            
+
             df = df.dropna(subset=["Emails"])
-            
+
             # If resuming, skip already processed records
             if resume_from > 0:
                 if resume_from >= len(df):
@@ -174,27 +176,27 @@ class BulkEmailSender:
                 skipped_records = df.iloc[:resume_from]
                 results["skipped"] = len(skipped_records)
                 df = df.iloc[resume_from:]
-            
+
             if len(df) > max_emails_per_day:
                 logging.warning(f"Limiting to {max_emails_per_day} emails per day, due to Gmail's daily sending limit")
                 df = df.head(max_emails_per_day)
-            
+
             total_recipients = len(df)
             start_time = datetime.now()
             logging.info(f"Starting bulk email campaign to {total_recipients} recipients")
-            
+
             # Create a state file for resuming
             state_file = f"email_campaign_state_{start_time.strftime('%Y%m%d_%H%M%S')}.json"
-            
+
             for index, row in df.iterrows():
                 real_index = index + resume_from
                 recipient_email = row["Emails"].strip()
-                
+
                 # Personalize content if needed
                 if personalize:
                     personalized_html = html_template
                     personalized_text = text_template if text_template else None
-                    
+
                     # Replace placeholders with recipient data
                     for key, value in row.items():
                         placeholder = f"{{{{{key}}}}}"
@@ -206,12 +208,12 @@ class BulkEmailSender:
                 else:
                     personalized_html = html_template
                     personalized_text = text_template
-                
+
                 # Process CC and BCC if they exist in the dataframe
                 cc = row["cc"]
-                
+
                 bcc = None
-                
+
                 # Create and send the email
                 msg = self.create_message(
                     recipient_email=recipient_email,
@@ -221,33 +223,34 @@ class BulkEmailSender:
                     attachment_paths=attachment_paths,
                     cc=cc,
                     bcc=bcc
-                )  
-                
+                )
+
                 # Show progress for every email
-                progress = f"Processing email {index + 1}/{total_recipients} ({(index + 1)/total_recipients*100:.1f}%)"
+                progress = f"Processing email {index + 1}/{total_recipients} ({(index + 1) / total_recipients * 100:.1f}%)"
                 print(f"\r{progress}", end="", flush=True)
-                
+
                 result = self.send_email(msg, recipient_email, cc, bcc)
                 if result == "BLOCKED":
                     # Gmail block detected - save state and exit
                     if save_state:
                         self._save_campaign_state(state_file, real_index + 1, results)
-                    
-                    logging.warning(f"Campaign paused due to Gmail restrictions. Resume later with --resume {real_index + 1}")
+
+                    logging.warning(
+                        f"Campaign paused due to Gmail restrictions. Resume later with --resume {real_index + 1}")
                     return results
-                
+
                 if result:
                     results["success"] += 1
                     logging.info(f"✓ Sent to {recipient_email}")
                 else:
                     results["failed"] += 1
                     logging.error(f"✗ Failed to send to {recipient_email}")
-                
+
                 # Add randomized delay to mimic human behavior
                 current_delay = delay_base + random.uniform(0.5, 1.5)
                 if index < total_recipients - 1:
                     time.sleep(current_delay)
-                
+
                 # Take a longer break after each batch
                 if (index + 1) % batch_size == 0:
                     logging.info(f"Taking a longer break after {batch_size} emails")
@@ -256,15 +259,16 @@ class BulkEmailSender:
                     if not self.connect():  # Reconnect after the break
                         logging.error("Failed to reconnect to SMTP server after break")
                         return results
-            
+
             end_time = datetime.now()
             duration = (end_time - start_time).total_seconds()
             logging.info(f"Bulk email campaign completed in {duration:.2f} seconds")
-            logging.info(f"Results: {results['success']} successful, {results['failed']} failed, {results['skipped']} skipped")
-            
+            logging.info(
+                f"Results: {results['success']} successful, {results['failed']} failed, {results['skipped']} skipped")
+
             # Print a newline after the progress bar is done
             print("\n")
-            
+
             summary = (
                 f"\nBulk email campaign completed:"
                 f"\n- Duration: {duration:.2f} seconds"
@@ -273,15 +277,15 @@ class BulkEmailSender:
                 f"\n- Skipped: {results['skipped']}"
             )
             logging.info(summary)
-            
+
         except Exception as e:
             logging.error(f"Error in buld email process: {str(e)}")
             return False
         finally:
             self.disconnect()
-        
+
         return results
-    
+
     def _save_campaign_state(self, state_file, resume_index, results):
         """Save the current state of the campaign to a file"""
         state = {
@@ -301,6 +305,7 @@ def load_email_template(template_path):
         logging.error(f"Failed to load template: {e}")
         return None
 
+
 def load_environment(env_name):
     """Load environment variables from the specified .env file"""
     os.environ.clear()
@@ -309,14 +314,15 @@ def load_environment(env_name):
         print(f"Error: Environment file '{env_file}' does not exist")
         print("Available environments: it, pension, governance")
         exit(1)
-    
+
     load_dotenv(env_file)
     print(f"Loaded environment: {env_name}")
     print(f"Sender: {os.getenv('SENDER_EMAIL')} ({os.getenv('SENDER_NAME')})")
 
+
 # Set up command line argument parsing
 parser = argparse.ArgumentParser(description='Bulk Email Sender')
-parser.add_argument('-e', '--env', 
+parser.add_argument('-e', '--env',
                     choices=['it', 'pension', 'governance'],
                     default='it',
                     help='Select the environment to use (default: it)')
@@ -327,35 +333,8 @@ args = parser.parse_args()
 # Load the selected environment
 load_environment(args.env)
 
-if __name__ == "__main__":
-    subject = "Advanced Records Management & Digital Transformation - Date Updated"
-    
-    csv = None
-    
-    if args.env == 'pension':
-        # csv = "prospects-email-cleaned.csv"
-        # csv = "prospects-email-cleaned-2.csv"
-        csv = "combined-emails-cleaned-2.csv"
-    elif args.env == 'governance':
-        # csv = "governance-email-cleaned.csv"
-        # csv = "governance-email-cleaned-2.csv"
-        csv = "combined-emails-cleaned-1.csv"
-    elif args.env == 'it':
-        csv = "testing.csv"
-    else:
-        print("Invalid environment")
-        exit(1)
-        
-    html_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.html")
-    
-    text_template = load_email_template("email-templates/Advanced-Records-Management/Advanced-Records-Management.txt")
-    
-    attachments = [
-        "assets/company_profile.pdf",
-        "assets/Ascent_Calendar_2025.pdf",
-        "assets/advanced-records-management-&-digital-transformation-workshop.jpg"
-    ]
-    
+
+def email_sender(subject, files, custom_html_template, custom_text_template):
     sender = BulkEmailSender(
         smtp_server='smtp.gmail.com',
         smtp_port=587,
@@ -364,17 +343,79 @@ if __name__ == "__main__":
         sender_email=os.environ.get('SENDER_EMAIL'),
         sender_name=os.environ.get('SENDER_NAME'),
     )
-    
-    results = sender.send_bulk_emails(
+
+    final_results = sender.send_bulk_emails(
         csv_file=csv,
         subject=subject,
-        html_template=html_template,
-        text_template=text_template,
-        attachment_paths=attachments,
+        html_template=custom_html_template,
+        text_template=custom_text_template,
+        attachment_paths=files,
         personalize=True,
         delay_base=6,
         max_emails_per_day=500,
         resume_from=args.resume
     )
-    
+
+    return final_results
+
+
+if __name__ == "__main__":
+    csv = None
+    # Defining csvs
+    if args.env == 'pension':
+        csv = "emails/march-20/pension-advanced-records-reminder-to-send-cleaned.csv"
+        # csv = "testing.csv"
+    elif args.env == 'governance':
+        csv = "emails/march-20/governance-21st-century-to-send-cleaned.csv"
+        # csv = "testing.csv"
+    elif args.env == 'it':
+        csv = "testing.csv"
+    else:
+        print("Invalid environment")
+        exit(1)
+
+    if args.env == 'pension':
+        subject_pension = "[Friendly Reminder]: Advanced Records Management & Digital Transformation Workshop - March 24-28, 2025"
+        html_template = load_email_template(
+            "email-templates/Advanced-Records-Management/part-2/Advanced-Records-Management.html")
+
+        text_template = load_email_template(
+            "email-templates/Advanced-Records-Management/part-2/Advanced-Records-Management.txt")
+        attachments = [
+            "assets/company_profile.pdf",
+            "assets/Ascent_Calendar_2025.pdf",
+            "assets/advanced-record-management/advanced-records-management-&-digital-transformation-workshop.jpg"
+        ]
+        results = email_sender(subject_pension, attachments, html_template, text_template)
+    elif args.env == 'governance':
+        subject_governance = "Invitation: Exclusive Invitation 21st Century Leadership Workshop in Zanzibar | March 31-April 4, 2025"
+        html_template = load_email_template(
+            "email-templates/21st-century-leadership/part-2/21st-century-leadership.html")
+
+        text_template = load_email_template(
+            "email-templates/21st-century-leadership/part-2/21st-century-leadership.txt")
+        attachments = [
+            "assets/company_profile.pdf",
+            "assets/Ascent_Calendar_2025.pdf",
+            "assets/21st-century-leadership/21ST-CENTURY-LEADERSHIP.pdf"
+        ]
+        results = email_sender(subject_governance, attachments, html_template, text_template)
+    else:
+        """
+                * Always change here for testing purposes
+        """
+        subject_it = "[TESTING]: Advanced Records Management & Digital Transformation Workshop - March 24-28, 2025"
+        subject_governance = "Invitation: Exclusive Invitation 21st Century Leadership Workshop in Zanzibar | March 31-April 4, 2025"
+        html_template = load_email_template(
+            "email-templates/21st-century-leadership/part-2/21st-century-leadership.html")
+
+        text_template = load_email_template(
+            "email-templates/21st-century-leadership/part-2/21st-century-leadership.txt")
+        attachments = [
+            "assets/company_profile.pdf",
+            "assets/Ascent_Calendar_2025.pdf",
+            "assets/21st-century-leadership/21ST-CENTURY-LEADERSHIP.pdf"
+        ]
+        results = email_sender(subject_it, attachments, html_template, text_template)
+
     print(f"Email campaign summary: {results}")
