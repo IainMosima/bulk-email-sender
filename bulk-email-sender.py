@@ -374,13 +374,14 @@ if __name__ == "__main__":
         print("Invalid environment")
         exit(1)
 
+    # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
         subject_pension = "INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & DIGITAL  RECORDS "
         html_template = load_email_template(
-            "email-templates/Advanced-Records-Management/part-2/Advanced-Records-Management.html")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.html")
 
         text_template = load_email_template(
-            "email-templates/Advanced-Records-Management/part-2/Advanced-Records-Management.txt")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.txt")
         attachments = [
             "assets/company_profile.pdf",
             "assets/Ascent_Calendar_2025.pdf",
@@ -407,10 +408,10 @@ if __name__ == "__main__":
         subject_it = "[TESTING]: INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & DIGITAL  RECORDS "
         subject_governance = "Invitation: Exclusive Invitation 21st Century Leadership Workshop in Zanzibar | March 31-April 4, 2025"
         html_template = load_email_template(
-            "email-templates/21st-century-leadership/part-2/21st-century-leadership.html")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.html")
 
         text_template = load_email_template(
-            "email-templates/21st-century-leadership/part-2/21st-century-leadership.txt")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.txt")
         attachments = [
             "assets/company_profile.pdf",
             "assets/Ascent_Calendar_2025.pdf",
