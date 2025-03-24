@@ -375,7 +375,7 @@ if __name__ == "__main__":
         exit(1)
 
     if args.env == 'pension':
-        subject_pension = "[Friendly Reminder]: Advanced Records Management & Digital Transformation Workshop - March 24-28, 2025"
+        subject_pension = "INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & DIGITAL  RECORDS "
         html_template = load_email_template(
             "email-templates/Advanced-Records-Management/part-2/Advanced-Records-Management.html")
 
@@ -388,23 +388,23 @@ if __name__ == "__main__":
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_governance = "Invitation: Exclusive Invitation 21st Century Leadership Workshop in Zanzibar | March 31-April 4, 2025"
+        subject_governance = "INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & DIGITAL  RECORDS "
         html_template = load_email_template(
-            "email-templates/21st-century-leadership/part-2/21st-century-leadership.html")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.html")
 
         text_template = load_email_template(
-            "email-templates/21st-century-leadership/part-2/21st-century-leadership.txt")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.txt")
         attachments = [
             "assets/company_profile.pdf",
             "assets/Ascent_Calendar_2025.pdf",
-            "assets/21st-century-leadership/21ST-CENTURY-LEADERSHIP.pdf"
+            # "assets/21st-century-leadership/21ST-CENTURY-LEADERSHIP.pdf"
         ]
         results = email_sender(subject_governance, attachments, html_template, text_template)
     else:
         """
                 * Always change here for testing purposes
         """
-        subject_it = "[TESTING]: Advanced Records Management & Digital Transformation Workshop - March 24-28, 2025"
+        subject_it = "[TESTING]: INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & DIGITAL  RECORDS "
         subject_governance = "Invitation: Exclusive Invitation 21st Century Leadership Workshop in Zanzibar | March 31-April 4, 2025"
         html_template = load_email_template(
             "email-templates/21st-century-leadership/part-2/21st-century-leadership.html")
