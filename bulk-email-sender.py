@@ -247,7 +247,7 @@ class BulkEmailSender:
                     logging.error(f"✗ Failed to send to {recipient_email}")
 
                 # Add randomized delay to mimic human behavior
-                current_delay = delay_base + random.uniform(0.5, 1.5)
+                current_delay = delay_base + random.uniform(5, 20)
                 if index < total_recipients - 1:
                     time.sleep(current_delay)
 
@@ -363,10 +363,10 @@ if __name__ == "__main__":
     csv = None
     # TODO: ALWAYS CHANGE CSV
     if args.env == 'pension':
-        csv = "emails/march-25/school-emails-cleaned.csv"
+        csv = "emails/march-25/school-emails-cleaned-2.csv"
         # csv = "testing.csv"
     elif args.env == 'governance':
-        csv = "emails/march-24/combined-emails-march-24-governance.csv"
+        csv = "emails/march-25/governance-board-emails-cleaned.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
         csv = "testing.csv"
@@ -385,16 +385,16 @@ if __name__ == "__main__":
         attachments = [
             "assets/company_profile.pdf",
             "assets/Ascent_Calendar_2025.pdf",
-            # "assets/advanced-record-management/advanced-records-management-&-digital-transformation-workshop.jpg"
+            "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_governance = "INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & DIGITAL  RECORDS "
+        subject_governance = "EMBRACING E-BOARDS AND DIGITAL TRANSFORMATION"
         html_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.html")
+            "email-templates/embracing-e-boards-and-digital-transformation/embracing-e-boards-and-digital-transformation.html")
 
         text_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.txt")
+            "email-templates/embracing-e-boards-and-digital-transformation/embracing-e-boards-and-digital-transformation.txt")
         attachments = [
             "assets/company_profile.pdf",
             "assets/Ascent_Calendar_2025.pdf",
@@ -417,5 +417,4 @@ if __name__ == "__main__":
             # "assets/advanced-record-management/advanced-records-management-&-digital-transformation-workshop.jpg"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
-
     print(f"Email campaign summary: {results}")
