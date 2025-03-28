@@ -39,3 +39,7 @@ wcwidth==0.2.13
 zipp==3.21.0
 tabulate
 openpyxl
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
