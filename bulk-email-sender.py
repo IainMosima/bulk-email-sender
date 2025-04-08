@@ -363,7 +363,7 @@ if __name__ == "__main__":
     csv = None
     # TODO: ALWAYS CHANGE CSV
     if args.env == 'pension':
-        csv = "emails/april/april-3/pension.csv"
+        csv = "emails/march/march-28/pension-emails-cleaned.csv"
         # csv = "testing.csv"
     elif args.env == 'governance':
         csv = "emails/april/april-3/governance.csv"
@@ -377,17 +377,16 @@ if __name__ == "__main__":
 
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
-        subject_pension = "Elevate Your Team’s Performance with Our Tailored Team Building Proposal"
+        subject_pension = "INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & DIGITAL RECORDS"
         html_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.html")
 
         text_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.txt")
         attachments = [
             "assets/company_profile.pdf",
             "assets/Ascent_Calendar_2025.pdf",
-            "assets/proposal-for-team-building.pdf"
-            # "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
+            "assets/masterclass-in-advanced-records-management.jpg"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
