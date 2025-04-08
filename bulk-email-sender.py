@@ -363,58 +363,62 @@ if __name__ == "__main__":
     csv = None
     # TODO: ALWAYS CHANGE CSV
     if args.env == 'pension':
-        csv = "emails/march-28/pension-emails-cleaned.csv"
+        csv = "emails/april/april-3/pension.csv"
         # csv = "testing.csv"
     elif args.env == 'governance':
-        csv = "emails/march-28/governance-emails.csv"
+        csv = "emails/april/april-3/governance.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
         csv = "testing.csv"
+        # csv = "emails/april/april-3/it.csv"
     else:
         print("Invalid environment")
         exit(1)
 
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
-        subject_pension = "INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & ELECTRONIC DIGITAL RECORDS"
+        subject_pension = "Elevate Your Team’s Performance with Our Tailored Team Building Proposal"
         html_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.html")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
 
         text_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.txt")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
         attachments = [
             "assets/company_profile.pdf",
             "assets/Ascent_Calendar_2025.pdf",
-            "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
+            "assets/proposal-for-team-building.pdf"
+            # "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_pension = "Is your organization's governance ready for the digital age? Join Our E-Boards Workshop in Mombasa"
+        subject_pension = "Elevate Your Team’s Performance with Our Tailored Team Building Proposal"
         html_template = load_email_template(
-            "email-templates/embracing-e-boards-and-digital-transformation/embracing-e-boards-and-digital-transformation.html")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
 
         text_template = load_email_template(
-            "email-templates/embracing-e-boards-and-digital-transformation/embracing-e-boards-and-digital-transformation.txt")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
         attachments = [
             "assets/company_profile.pdf",
             "assets/Ascent_Calendar_2025.pdf",
-            "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
+            "assets/proposal-for-team-building.pdf"
+            # "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     else:
         """
                 * Always change here for testing purposes
         """
-        subject_pension = "INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & ELECTRONIC DIGITAL RECORDS"
+        subject_pension = "Elevate Your Team’s Performance with Our Tailored Team Building Proposal"
         html_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.html")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
 
         text_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.txt")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
         attachments = [
             "assets/company_profile.pdf",
             "assets/Ascent_Calendar_2025.pdf",
-            "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
+            "assets/proposal-for-team-building.pdf"
+            # "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     print(f"Email campaign summary: {results}")
