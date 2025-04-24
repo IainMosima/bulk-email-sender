@@ -247,7 +247,7 @@ class BulkEmailSender:
                     logging.error(f"✗ Failed to send to {recipient_email}")
 
                 # Add randomized delay to mimic human behavior
-                current_delay = delay_base + random.uniform(5, 20)
+                current_delay = delay_base + random.uniform(5, 19)
                 if index < total_recipients - 1:
                     time.sleep(current_delay)
 
@@ -363,61 +363,59 @@ if __name__ == "__main__":
     csv = None
     # TODO: ALWAYS CHANGE CSV
     if args.env == 'pension':
-        csv = "emails/march/march-28/pension-emails-cleaned.csv"
+        csv = "emails/april/april-24/pension.csv"
         # csv = "testing.csv"
     elif args.env == 'governance':
-        csv = "emails/april/april-3/governance.csv"
+        csv = "emails/april/april-24/governance.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
-        csv = "testing.csv"
-        # csv = "emails/april/april-3/it.csv"
+        # csv = "testing.csv"
+        csv = "emails/april/april-24/it.csv"
     else:
         print("Invalid environment")
         exit(1)
 
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
-        subject_pension = "INVITATION TO MASTERCLASS IN ADVANCED RECORDS MANAGEMENT & DIGITAL RECORDS"
+        subject_pension = "Exclusive Invite: Masterclass in Governance & Innovation at Marina Bay Sands"
         html_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.html")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.html")
 
         text_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.txt")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.txt")
         attachments = [
             "assets/company_profile.pdf",
-            "assets/Ascent_Calendar_2025.pdf",
-            "assets/masterclass-in-advanced-records-management.jpg"
+            # "assets/Ascent_Calendar_2025.pdf",
+            "assets/Invitation to Masterclass in Corporate Governance -26th  May 2025_ 31st May 2025.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_pension = "Elevate Your Team’s Performance with Our Tailored Team Building Proposal"
+        subject_pension = "Exclusive Invite: Masterclass in Governance & Innovation at Marina Bay Sands"
         html_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.html")
 
         text_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.txt")
         attachments = [
             "assets/company_profile.pdf",
-            "assets/Ascent_Calendar_2025.pdf",
-            "assets/proposal-for-team-building.pdf"
-            # "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
+            # "assets/Ascent_Calendar_2025.pdf",
+            "assets/Invitation to Masterclass in Corporate Governance -26th  May 2025_ 31st May 2025.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     else:
         """
                 * Always change here for testing purposes
         """
-        subject_pension = "Elevate Your Team’s Performance with Our Tailored Team Building Proposal"
+        subject_pension = "Exclusive Invite: Masterclass in Governance & Innovation at Marina Bay Sands"
         html_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.html")
 
         text_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
+            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.txt")
         attachments = [
             "assets/company_profile.pdf",
-            "assets/Ascent_Calendar_2025.pdf",
-            "assets/proposal-for-team-building.pdf"
-            # "assets/masterclass-in-advanced-records-management-&-digital-records/masterclass-in-advanced-records-management-&-digital-records.jpg"
+            # "assets/Ascent_Calendar_2025.pdf",
+            "assets/Invitation to Masterclass in Corporate Governance -26th  May 2025_ 31st May 2025.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     print(f"Email campaign summary: {results}")
