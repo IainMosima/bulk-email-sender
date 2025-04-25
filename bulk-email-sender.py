@@ -377,12 +377,12 @@ if __name__ == "__main__":
 
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
-        subject_pension = "Exclusive Invite: Masterclass in Governance & Innovation at Marina Bay Sands"
+        subject_pension = "Your Seat at the Table Awaits – Join Kenya’s Women Leaders in an exclusive dinner"
         html_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.html")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
 
         text_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.txt")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
         attachments = [
             "assets/company_profile.pdf",
             # "assets/Ascent_Calendar_2025.pdf",
@@ -390,12 +390,12 @@ if __name__ == "__main__":
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_pension = "Exclusive Invite: Masterclass in Governance & Innovation at Marina Bay Sands"
+        subject_pension = "Your Seat at the Table Awaits – Join Kenya’s Women Leaders in an exclusive dinner"
         html_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.html")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
 
         text_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.txt")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
         attachments = [
             "assets/company_profile.pdf",
             # "assets/Ascent_Calendar_2025.pdf",
@@ -406,12 +406,12 @@ if __name__ == "__main__":
         """
                 * Always change here for testing purposes
         """
-        subject_pension = "Exclusive Invite: Masterclass in Governance & Innovation at Marina Bay Sands"
+        subject_pension = "Your Seat at the Table Awaits – Join Kenya’s Women Leaders in an exclusive dinner"
         html_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.html")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
 
         text_template = load_email_template(
-            "email-templates/masterclass-in-advanced-records-management-&-digital-records/part-2/masterclass-in-governance-and-innovation-marina-bay-sands.txt")
+            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
         attachments = [
             "assets/company_profile.pdf",
             # "assets/Ascent_Calendar_2025.pdf",

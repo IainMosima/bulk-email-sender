@@ -40,6 +40,8 @@ zipp==3.21.0
 tabulate
 openpyxl
 google-auth
-google-auth-oauthlib
+google-auth-oauthlib~=1.2.2
 google-auth-httplib2
-google-api-python-client
+jmespath~=1.0.1
+protobuf~=6.30.1
+google-api-python-client~=2.168.0

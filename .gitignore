@@ -21,3 +21,5 @@ valid-emails.xlsx
 emails/old/main-combined.csv
 emails
 assets
+credentials.json
+token-*.json
