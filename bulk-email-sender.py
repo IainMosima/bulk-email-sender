@@ -366,27 +366,27 @@ if __name__ == "__main__":
         csv = "emails/april/april-24/pension.csv"
         # csv = "testing.csv"
     elif args.env == 'governance':
-        csv = "emails/april/april-24/governance.csv"
+        csv = "emails/april/april-28/prospects-leads-april-28.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
-        # csv = "testing.csv"
-        csv = "emails/april/april-24/it.csv"
+        csv = "testing.csv"
+        # csv = "emails/april/april-24/it.csv"
     else:
         print("Invalid environment")
         exit(1)
 
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
-        subject_pension = "Your Seat at the Table Awaits – Join Kenya’s Women Leaders in an exclusive dinner"
+        subject_pension = "Ascent Institute - Request for Prequalification as Professional Development Service Provider"
         html_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
+            "email-templates/professional-development/professional-development.html")
 
         text_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
+            "email-templates/professional-development/professional-development.txt")
         attachments = [
             "assets/company_profile.pdf",
             # "assets/Ascent_Calendar_2025.pdf",
-            "assets/Invitation to Masterclass in Corporate Governance -26th  May 2025_ 31st May 2025.pdf"
+            "assets/Ascent Institute Prequalification letter.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
@@ -406,16 +406,16 @@ if __name__ == "__main__":
         """
                 * Always change here for testing purposes
         """
-        subject_pension = "Your Seat at the Table Awaits – Join Kenya’s Women Leaders in an exclusive dinner"
+        subject_pension = "Ascent Institute - Request for Prequalification as Professional Development Service Provider"
         html_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.html")
+            "email-templates/professional-development/professional-development.html")
 
         text_template = load_email_template(
-            "email-templates/proposal-for-team-building/proposal-for-team-building.txt")
+            "email-templates/professional-development/professional-development.txt")
         attachments = [
             "assets/company_profile.pdf",
             # "assets/Ascent_Calendar_2025.pdf",
-            "assets/Invitation to Masterclass in Corporate Governance -26th  May 2025_ 31st May 2025.pdf"
+            "assets/Ascent Institute Prequalification letter.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     print(f"Email campaign summary: {results}")
