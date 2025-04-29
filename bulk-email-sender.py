@@ -369,15 +369,15 @@ if __name__ == "__main__":
         csv = "emails/april/april-28/governance.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
-        csv = "testing.csv"
-        # csv = "emails/april/april-28/it.csv"
+        # csv = "testing.csv"
+        csv = "emails/april/april-28/it.csv"
     else:
         print("Invalid environment")
         exit(1)
 
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
-        subject_pension = "Master Stakeholder Engagement Workshop (19th-23rd May)"
+        subject_pension = "Exclusive Invite: Executive Change Management Masterclass (2nd-6th June 2025)"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
@@ -385,12 +385,12 @@ if __name__ == "__main__":
             "email-templates/to-send.txt")
         attachments = [
             # "assets/company_profile.pdf",
-            "assets/Nomination form - Stakeholder Engagement.pdf",
-            "assets / Stakeholder Engagement invitation.pdf"
+            "assets/Change Management - June 2025.pdf",
+            "assets/Nomination Form - Change management.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_pension = "Master Stakeholder Engagement Workshop (19th-23rd May)"
+        subject_pension = "Exclusive Invite: Executive Change Management Masterclass (2nd-6th June 2025)"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
@@ -398,15 +398,15 @@ if __name__ == "__main__":
             "email-templates/to-send.txt")
         attachments = [
             # "assets/company_profile.pdf",
-            "assets/Nomination form - Stakeholder Engagement.pdf",
-            "assets / Stakeholder Engagement invitation.pdf"
+            "assets/Change Management - June 2025.pdf",
+            "assets/Nomination Form - Change management.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     else:
         """
                 * Always change here for testing purposes
         """
-        subject_pension = "Master Stakeholder Engagement Workshop (19th-23rd May)"
+        subject_pension = "Exclusive Invite: Executive Change Management Masterclass (2nd-6th June 2025)"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
@@ -414,8 +414,8 @@ if __name__ == "__main__":
             "email-templates/to-send.txt")
         attachments = [
             # "assets/company_profile.pdf",
-            "assets/Nomination form - Stakeholder Engagement.pdf",
-            "assets / Stakeholder Engagement invitation.pdf"
+            "assets/Change Management - June 2025.pdf",
+            "assets/Nomination Form - Change management.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     print(f"Email campaign summary: {results}")
