@@ -8,56 +8,86 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             color: #333;
             line-height: 1.6;
+            background-color: #f9f9f9;
         }
 
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
 
-        .header, .footer {
+        .header {
             background-color: #233D94;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
+            border-bottom: 5px solid #CFA448;
         }
 
         .header img {
-            max-width: 250px;
-            margin-bottom: 10px;
+            max-width: 220px;
+            margin-bottom: 15px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 1px;
         }
 
         .content {
             background-color: #fff;
-            padding: 20px;
+            padding: 30px;
+        }
+
+        .greeting {
+            font-size: 18px;
+            font-weight: bold;
+            color: #233D94;
+        }
+
+        .highlight-box {
+            background-color: rgba(35, 61, 148, 0.05);
+            border-left: 5px solid #CFA448;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .event-details {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .event-details p {
+            margin: 10px 0;
+            font-size: 16px;
         }
 
         .tagline {
             font-style: italic;
             text-align: center;
-            margin: 20px 0;
+            margin: 25px 0;
             color: #CFA448;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
 
-        .button {
-            background-color: #CFA448;
+        .section-title {
             color: #233D94;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            display: inline-block;
-            margin: 20px 10px;
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            background-color: #233D94;
-            color: #fff;
+            border-bottom: 2px solid #CFA448;
+            padding-bottom: 8px;
+            font-size: 20px;
+            margin-top: 30px;
         }
 
         ul {
@@ -76,7 +106,8 @@
 
         .agenda-table th, .agenda-table td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 12px;
+            text-align: left;
         }
 
         .agenda-table th {
@@ -84,28 +115,95 @@
             color: white;
         }
 
-        .highlight {
-            background-color: rgba(35, 61, 148, 0.05);
-            border-left: 5px solid #CFA448;
-            padding: 15px;
-            margin: 20px 0;
+        .agenda-table tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
 
         .featured-section {
             background-color: rgba(35, 61, 148, 0.05);
-            padding: 10px;
+            padding: 15px;
             border-radius: 5px;
-            margin: 20px 0;
+            margin: 25px 0;
+        }
+
+        .featured-section ul {
+            list-style-type: none;
+            padding-left: 10px;
         }
 
         .special-offer {
-            background-color: rgba(207, 164, 72, 0.2);
+            background-color: rgba(207, 164, 72, 0.15);
             border: 2px dashed #CFA448;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             font-weight: bold;
             border-radius: 5px;
-            margin: 20px 0;
+            margin: 25px 0;
+        }
+
+        .action-section {
+            text-align: center;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 30px 0 20px 0;
+        }
+
+        .button {
+            background-color: #CFA448;
+            color: #233D94;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 20px 10px;
+            transition: 0.3s;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .button:hover {
+            background-color: #233D94;
+            color: #fff;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin: 30px 0;
+            color: #555;
+            padding: 0 20px;
+        }
+
+        .signature {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer {
+            background-color: #233D94;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .emoji {
+            font-size: 18px;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -117,31 +215,34 @@
     </div>
 
     <div class="content">
-        <p><strong>Greetings From Ascent Institute!</strong></p>
+        <p class="greeting">Greetings From Ascent Institute!</p>
 
-        <div class="highlight">
+        <div class="highlight-box">
             <p>We are pleased to invite you to <strong>"Leading Transformation: The Executive Change Management
-                Masterclass"</strong> – a premier learning experience designed for Kenya’s top business leaders and
+                Masterclass"</strong> – a premier learning experience designed for Kenya's top business leaders and
                 change agents.</p>
         </div>
 
-        <p>📅 <strong>Date:</strong> 2nd-6th June 2025</p>
-        <p>📍 <strong>Venue:</strong> Eseriani The Resort, Naivasha</p>
-        <p>💰 <strong>Investment:</strong> Ksh 70,000 (Early Executive Rate: Ksh 65,000 until 15th May)</p>
-
-        <div class="tagline">
-            "Redefining Organizational Change for Kenya’s Business Leaders"
+        <div class="event-details">
+            <p><span class="emoji">📅</span> <strong>Date:</strong> 2nd-6th June 2025</p>
+            <p><span class="emoji">📍</span> <strong>Venue:</strong> Eseriani The Resort, Naivasha</p>
+            <p><span class="emoji">💰</span> <strong>Investment:</strong> Ksh 70,000 (Early Executive Rate: Ksh 65,000 until 15th May)</p>
         </div>
 
-        <h3>Why Attend?</h3>
+        <div class="tagline">
+            "Redefining Organizational Change for Kenya's Business Leaders"
+        </div>
+
+        <h3 class="section-title">Why Attend?</h3>
         <p>With FY2025/26 strategic planning underway, this masterclass will equip you to:</p>
         <ul>
-            <li>✔ Lead change initiatives with minimal disruption</li>
-            <li>✔ Align teams with new financial year objectives</li>
-            <li>✔ Apply global best practices tailored for Kenya’s unique challenges</li>
+            <li><strong>✔</strong> Lead change initiatives with minimal disruption</li>
+            <li><strong>✔</strong> Align teams with new financial year objectives</li>
+            <li><strong>✔</strong> Apply global best practices tailored for Kenya's unique challenges</li>
         </ul>
 
-        <h3>Who Should Join?</h3>
+        <h3 class="section-title">Who Should Join?</h3>
+        <p>This program is designed for:</p>
         <ul>
             <li>CEOs & Directors driving organizational restructuring</li>
             <li>Heads of HR overseeing culture transformation</li>
@@ -150,7 +251,7 @@
             <li>Project Managers implementing system migrations</li>
         </ul>
 
-        <h3>5-Day Agenda Highlights</h3>
+        <h3 class="section-title">5-Day Agenda Highlights</h3>
         <table class="agenda-table">
             <tr>
                 <th>Day</th>
@@ -178,47 +279,45 @@
             </tr>
         </table>
 
-        <h3>Your Premium Package Includes:</h3>
+        <h3 class="section-title">Your Premium Package Includes:</h3>
         <div class="featured-section">
             <ul>
-                <li>✅ 5-day luxury residency at Eseriani The Resort</li>
-                <li>✅ Gourmet meals + executive networking access</li>
-                <li>✅ Certificate of Completion</li>
-                <li>✅ Comprehensive training materials</li>
-                <li>✅ Post-training support</li>
+                <li><strong>✅</strong> 5-day luxury residency at Eseriani The Resort</li>
+                <li><strong>✅</strong> Gourmet meals + executive networking access</li>
+                <li><strong>✅</strong> Certificate of Completion</li>
+                <li><strong>✅</strong> Comprehensive training materials</li>
+                <li><strong>✅</strong> Post-training support</li>
             </ul>
         </div>
 
         <div class="special-offer">
-            🔹 <strong>Early Executive Rate:</strong> Ksh 65,000 (Register by 15th May 2025)<br>
-            🔹 <strong>Standard Rate:</strong> Ksh 70,000<br>
-            <em>County government vouchers accepted.</em>
+            <p><span class="emoji">🔹</span> <strong>Early Executive Rate:</strong> Ksh 65,000 (Register by 15th May 2025)</p>
+            <p><span class="emoji">🔹</span> <strong>Standard Rate:</strong> Ksh 70,000</p>
+            <p><em>County government vouchers accepted.</em></p>
         </div>
 
-        <div style="text-align: center;">
-            <h3>Take Action Today!</h3>
-            📞 <strong>Call:</strong> 0794 141 414<br>
-            🌐 <a
-                href="mailto:info@ascent-institute.com?subject=Registration%20for%20Executive%20Change%20Management%20Masterclass&body=Dear%20Ascent%20Institute%2C%0A%0AI%20would%20like%20to%20register%20for%20the%20'Leading%20Transformation%3A%20The%20Executive%20Change%20Management%20Masterclass'%20program.%0A%0APlease%20find%20my%20details%20below%3A%0A%0AFull%20Name%3A%20%0APosition%3A%20%0AOrganization%3A%20%0AEmail%20Address%3A%20%0APhone%20Number%3A%20%0ACounty%3A%20%0A%0AAny%20Special%20Requests%20%2F%20Notes%3A%20%0A%0AThank%20you!%0A"
-                class="button">
-            Register Now
-        </a>
-            <br>
-            ✉ <strong>Email:</strong> info@institute.co.ke
+        <div class="action-section">
+            <h3 class="section-title" style="text-align: center; border-bottom: none;">Take Action Today!</h3>
+            <p><span class="emoji">📞</span> <strong>Call:</strong> 0794 141 414</p>
+
+            <a href="http://www.ascent-institute.com" class="button">Register Now</a>
+
+            <p><span class="emoji">✉</span> <strong>Email:</strong> info@institute.co.ke</p>
         </div>
 
-        <div class="tagline">
+        <div class="quote">
             "The organizations that thrive are those that master change before it masters them."
         </div>
 
-        <p><strong>Warm regards,<br>Ascent Institute</strong></p>
+        <div class="signature">
+            <p><strong>Warm regards,<br>Ascent Institute</strong></p>
+        </div>
     </div>
 
     <div class="footer">
         <p>Ascent Institute</p>
         <p>Email: info@institute.co.ke | Phone: 0794 141 414</p>
-        <p><a href="http://www.ascent-institute.com" style="color:white; text-decoration:underline;">www.ascent-institute.com</a>
-        </p>
+        <p><a href="http://www.ascent-institute.com">www.ascent-institute.com</a></p>
     </div>
 </div>
 </body>
