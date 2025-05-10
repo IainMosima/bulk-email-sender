@@ -377,45 +377,45 @@ if __name__ == "__main__":
 
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
-        subject_pension = "Invitation: Executive Change Management Masterclass – June 2-6 at Eseriani The Resort, Naivasha"
+        subject_pension = "RE: Exclusive Invitation: Enhancing Productivity for Office Professionals Workshop"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
         text_template = load_email_template(
             "email-templates/to-send.txt")
         attachments = [
-            # "assets/company_profile.pdf",
-            # "assets/Change Management - June 2025.pdf",
-            # "assets/Nomination Form - Change management.pdf"
+            "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
+            "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
+            "assets/2025 Governance Trainings.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_pension = "Invitation: Executive Change Management Masterclass – June 2-6 at Eseriani The Resort, Naivasha"
+        subject_pension = "RE: Exclusive Invitation: Enhancing Productivity for Office Professionals Workshop"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
         text_template = load_email_template(
             "email-templates/to-send.txt")
         attachments = [
-            # "assets/company_profile.pdf",
-            # "assets/Change Management - June 2025.pdf",
-            # "assets/Nomination Form - Change management.pdf"
+            "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
+            "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
+            "assets/2025 Governance Trainings.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     else:
         """
                 * Always change here for testing purposes
         """
-        subject_pension = "Invitation: Executive Change Management Masterclass – June 2-6 at Eseriani The Resort, Naivasha"
+        subject_pension = "RE: Exclusive Invitation: Enhancing Productivity for Office Professionals Workshop"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
         text_template = load_email_template(
             "email-templates/to-send.txt")
         attachments = [
-            # "assets/company_profile.pdf",
-            # "assets/Change Management - June 2025.pdf",
-            # "assets/Nomination Form - Change management.pdf"
+            "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
+            "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
+            "assets/2025 Governance Trainings.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     print(f"Email campaign summary: {results}")

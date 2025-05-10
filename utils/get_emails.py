@@ -1,4 +1,4 @@
-def get_emails(emails_column):
+def get_emails(emails):
     def email_extractor(emails_info):
         if len(emails_info.split(" /")) > 1:
             # print(emails_info.split(" /"))
@@ -14,7 +14,7 @@ def get_emails(emails_column):
 
     result = []
 
-    for column in emails_column:
+    for column in emails:
         email = email_extractor(column)
 
         if type(email) == list:
