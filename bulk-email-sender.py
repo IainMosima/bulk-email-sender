@@ -363,13 +363,13 @@ if __name__ == "__main__":
     csv = None
     # TODO: ALWAYS CHANGE CSV
     if args.env == 'pension':
-        csv = "emails/may/may-10/pension_emails.csv"
+        csv = "emails/may/may-12/pension_emails.csv"
         # csv = "testing.csv"
     elif args.env == 'governance':
-        csv = "emails/may/may-10/governance_emails.csv"
+        csv = "emails/may/may-12/governance_emails.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
-        csv = "emails/may/may-10/it_emails.csv"
+        csv = "emails/may/may-12/it_emails.csv"
         # csv = "testing.csv"
     else:
         print("Invalid environment")

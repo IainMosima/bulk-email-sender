@@ -1,102 +1,85 @@
-----------------------------------------------------------------------------------
 
-**Greetings From Ascent Institute!**
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascent Institute - Adaptive Leadership & Change Management Masterclass</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>ADAPTIVE LEADERSHIP MASTERCLASS</h1>
+    </div>
 
-We are pleased to invite you and your team to our comprehensive workshop: **"Enhancing Productivity for Office Professionals: AI, Cybersecurity & Time Management"** – an immersive 5-day program designed to equip office professionals with essential skills to excel in today's rapidly evolving digital workplace.
+    <div class="content">
+        <p class="greeting">Greetings From Ascent Institute!</p>
 
-----------------------------------------------------------------------------------
+        <div class="highlight-box">
+            <p>We are excited to invite you to our signature program: <strong>"Leading Through Change: Adaptive Leadership & Organizational Influence Masterclass"</strong> – a transformative 5-day experience designed to empower professionals to lead with agility, resilience, and strategic foresight during organizational transformation and uncertainty.</p>
+        </div>
 
-**WORKSHOP DETAILS:**
+        <div class="event-details">
+            <p><strong>Date:</strong> 8th–12th July 2025</p>
+            <p><strong>Venue:</strong> Sarova Whitesands Beach Resort, Mombasa</p>
+            <p><strong>Investment:</strong> Ksh 72,000</p>
+        </div>
 
-📅 **Date:** 16th-20th June 2025
-📍 **Venue:** Sun N Sand Beach Resort, Mombasa
-💰 **Investment:** KES 65,000 per participant
-⏰ **Registration Deadline:** 31st May 2025
+        <div class="tagline">
+            "Adapt Fast, Influence Effectively, Lead Boldly"
+        </div>
 
-(Price inclusive of facilitation, materials, certification, and daily refreshments. Excludes VAT, Transport & Accommodation)
+        <h3 class="section-title">Why Attend?</h3>
+        <p>In an era of rapid change, successful leaders must not only manage operations but inspire adaptation. This masterclass will equip you to:</p>
+        <ul>
+            <li>✔ Lead teams through complexity and shifting priorities</li>
+            <li>✔ Communicate change with strategic clarity</li>
+            <li>✔ Cultivate influence without formal authority</li>
+            <li>✔ Build cultures of innovation and accountability</li>
+        </ul>
 
-----------------------------------------------------------------------------------
+        <h3 class="section-title">Who Should Attend?</h3>
+        <ul>
+            <li>Senior Managers and Directors driving change initiatives</li>
+            <li>Public Sector Leaders navigating policy transitions</li>
+            <li>HR and OD Practitioners involved in transformation programs</li>
+            <li>Team Leads preparing for organizational restructuring</li>
+            <li>NGO & Development Coordinators influencing across cultures</li>
+        </ul>
 
-***"Transform Your Productivity in the Digital Age"***
+        <h3 class="section-title">Training Highlights</h3>
+        <div class="featured-section">
+            <ul>
+                <li>✅ The Adaptive Leadership Framework</li>
+                <li>✅ Influencing Without Authority (Harvard Case Lens)</li>
+                <li>✅ Resistance Mapping & Change Narrative Development</li>
+                <li>✅ Scenario Planning & Role Play Simulations</li>
+                <li>✅ Personalized Change Leadership Action Plan</li>
+            </ul>
+        </div>
 
-----------------------------------------------------------------------------------
+        <div class="action-section">
+            <h3 class="section-title">Join A Network Of Forward-Thinking Leaders</h3>
+            <p>Lead with clarity, courage, and influence in times of transition.</p>
+            <p>Reserve your seat and elevate your leadership practice today.</p>
 
-**WORKSHOP FOCUS AREAS:**
+            <a href="http://www.ascent-institute.com">Enroll Now</a>
 
-✔ AI-powered office automation
-✔ Cybersecurity best practices
-✔ Advanced time management techniques
-✔ Digital records management
-✔ Stakeholder engagement strategies
+            <div class="contact-info">
+                <p><strong>Call:</strong> +254 794 141414</p>
+                <p><strong>Email:</strong> info@ascent-institute.com</p>
+                <p><strong>Visit:</strong> <a href="http://www.ascent-institute.com">www.ascent-institute.com</a></p>
+            </div>
+        </div>
 
-----------------------------------------------------------------------------------
+        <div class="quote">
+            "True leadership is tested not in stability, but in the fire of change."
+        </div>
 
-**KEY BENEFITS FOR PARTICIPANTS:**
-
-✅ Reduce time spent on repetitive tasks by up to 40%
-✅ Enhance data security and reduce breach risks by over 50%
-✅ Improve stakeholder communication effectiveness by 35%
-✅ Earn a professional certification
-✅ Network with peers in a conducive learning environment
-
-----------------------------------------------------------------------------------
-
-**TARGET AUDIENCE:**
-
-• Office Secretaries & Executive Assistants
-• Personal Assistants (PAs)
-• Administrative Officers & Office Assistants
-• Front Desk Personnel
-• Records Management Staff
-
-----------------------------------------------------------------------------------
-
-**WHY ENROLL YOUR TEAM?**
-
-Organizations that invest in this training can expect measurable returns:
-
-• **Time Savings:** 10 hours per employee weekly
-• **Cost Savings:** 60% compared to individual certifications
-• **Risk Reduction:** 90% in data breach risks
-• **ROI:** 300% within six months
-
-----------------------------------------------------------------------------------
-
-**HOW TO REGISTER:**
-
-Two easy ways to register:
-
-1. Reply to this email with the following details:
-   - Participant names and designations
-   - Organization details
-
-2. Email directly to info@ascent-institute.com with your registration details
-
-Payment options are outlined in the attached brochure for your reference.
-
-----------------------------------------------------------------------------------
-
-**LIMITED SPACES AVAILABLE – SECURE YOUR SPOT TODAY**
-
-Don't miss this opportunity to equip your team with essential digital workplace skills.
-Register before May 31st to guarantee participation!
-
-----------------------------------------------------------------------------------
-
-*"The difference between ordinary and extraordinary is that little 'extra' – the skills that set professional administrators apart."*
-
-----------------------------------------------------------------------------------
-
-**CONTACT US:**
-
-📞 **Call:** +254 794 141414
-📧 **Email:** info@ascent-institute.com
-🌐 **Visit:** www.ascent-institute.com
-
-----------------------------------------------------------------------------------
-
-**Best regards,**
-
-Ascent Institute
-Email: info@ascent-institute.com | Phone: +254 794 141414
-www.ascent-institute.com
+        <div class="signature">
+            <p><strong>Warm regards,<br>Ascent Institute</strong></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

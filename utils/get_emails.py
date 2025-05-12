@@ -1,14 +1,15 @@
 def get_emails(emails):
     def email_extractor(emails_info):
-        if len(emails_info.split(" /")) > 1:
-            # print(emails_info.split(" /"))
-            return emails_info.split(" /")
-        elif len(emails_info.split("/")) > 1:
-            return emails_info.split("/")
-        elif len(emails_info.split(",")) > 1:
-            return emails_info.split(",")
-        elif len(emails_info.split(", ")) > 1:
-            return emails_info.split(", ")
+        if type(emails_info) == str :
+            if len(emails_info.split(" /")) > 1:
+                # print(emails_info.split(" /"))
+                return emails_info.split(" /")
+            elif len(emails_info.split("/")) > 1:
+                return emails_info.split("/")
+            elif len(emails_info.split(",")) > 1:
+                return emails_info.split(",")
+            elif len(emails_info.split(", ")) > 1:
+                return emails_info.split(", ")
 
         return emails_info
 
