@@ -363,13 +363,13 @@ if __name__ == "__main__":
     csv = None
     # TODO: ALWAYS CHANGE CSV
     if args.env == 'pension':
-        csv = "emails/may/may-12/pension_emails.csv"
+        csv = "emails/may/may-19/pension_emails.csv"
         # csv = "testing.csv"
     elif args.env == 'governance':
-        csv = "emails/may/may-12/governance_emails.csv"
+        csv = "emails/may/may-19/governance_emails.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
-        csv = "emails/may/may-12/it_emails.csv"
+        csv = "emails/may/may-19/it_emails.csv"
         # csv = "testing.csv"
     else:
         print("Invalid environment")
@@ -377,45 +377,59 @@ if __name__ == "__main__":
 
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
-        subject_pension = "RE: Exclusive Invitation: Enhancing Productivity for Office Professionals Workshop"
+        # subject_pension = "You’re Invited: Men’s Breakfast – Lead with Values in a Shifting World"
+        subject_pension = "RE: Invitation to Ascent Institute Professional Development Programs - May & June 2025"
+
         html_template = load_email_template(
             "email-templates/to-send.html")
 
         text_template = load_email_template(
             "email-templates/to-send.txt")
         attachments = [
-            "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
-            "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
-            "assets/2025 Governance Trainings.pdf"
+            "assets/may-19/Ascent Institute - May & June programs.pdf",
+            "assets/may-19/Ascent Institute Calendar - 2025.pdf",
+            "assets/may-19/company profile.pdf",
+            # "assets/Men's Breakfast Poster.jpg",
+            # "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
+            # "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
+            # "assets/2025 Governance Trainings.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_pension = "RE: Exclusive Invitation: Enhancing Productivity for Office Professionals Workshop"
+        subject_pension = "RE: Invitation to Ascent Institute Professional Development Programs - May & June 2025"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
         text_template = load_email_template(
             "email-templates/to-send.txt")
         attachments = [
-            "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
-            "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
-            "assets/2025 Governance Trainings.pdf"
+            "assets/may-19/Ascent Institute - May & June programs.pdf",
+            "assets/may-19/Ascent Institute Calendar - 2025.pdf",
+            "assets/may-19/company profile.pdf",
+#             "assets/Men's Breakfast Poster.jpg",
+            # "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
+            # "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
+            # "assets/2025 Governance Trainings.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     else:
         """
                 * Always change here for testing purposes
         """
-        subject_pension = "RE: Exclusive Invitation: Enhancing Productivity for Office Professionals Workshop"
+        subject_pension = "RE: Invitation to Ascent Institute Professional Development Programs - May & June 2025"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
         text_template = load_email_template(
             "email-templates/to-send.txt")
         attachments = [
-            "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
-            "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
-            "assets/2025 Governance Trainings.pdf"
+            "assets/may-19/Ascent Institute - May & June programs.pdf",
+            "assets/may-19/Ascent Institute Calendar - 2025.pdf",
+            "assets/may-19/company profile.pdf",
+#             "assets/Men's Breakfast Poster.jpg",
+            # "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
+            # "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
+            # "assets/2025 Governance Trainings.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     print(f"Email campaign summary: {results}")
