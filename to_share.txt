@@ -1,0 +1,18 @@
+.env.governance
+EMAIL_USERNAME=governancetrainings@ascent-institute.com
+EMAIL_PASSWORD=mjpstqxqzuusmwcw
+SENDER_EMAIL=governancetrainings@ascent-institute.com
+SENDER_NAME=Ascent Institute
+
+.env.pension
+EMAIL_USERNAME=pensionstrainings@ascent-institute.com
+EMAIL_PASSWORD=bzvptulbfquvekim
+SENDER_EMAIL=pensionstrainings@ascent-institute.com
+SENDER_NAME=Ascent Institute
+
+
+.env.it
+EMAIL_USERNAME=IT@ascent-institute.com
+EMAIL_PASSWORD=idmehsiqulyybioj
+SENDER_EMAIL=IT@ascent-institute.com
+SENDER_NAME=Ascent Institute
