@@ -369,8 +369,8 @@ if __name__ == "__main__":
         csv = "emails/may/may-19/governance_emails.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
-        csv = "emails/may/may-19/it_emails.csv"
-        # csv = "testing.csv"
+        # csv = "emails/may/may-19/it_emails.csv"
+        csv = "testing.csv"
     else:
         print("Invalid environment")
         exit(1)
@@ -378,7 +378,7 @@ if __name__ == "__main__":
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
         # subject_pension = "You’re Invited: Men’s Breakfast – Lead with Values in a Shifting World"
-        subject_pension = "RE: Invitation to Ascent Institute Professional Development Programs - May & June 2025"
+        subject_pension = "This Saturday’s Breakfast Will Change Your Leadership Game—Don’t Miss Out!"
 
         html_template = load_email_template(
             "email-templates/to-send.html")
@@ -386,27 +386,27 @@ if __name__ == "__main__":
         text_template = load_email_template(
             "email-templates/to-send.txt")
         attachments = [
-            "assets/may-19/Ascent Institute - May & June programs.pdf",
-            "assets/may-19/Ascent Institute Calendar - 2025.pdf",
-            "assets/may-19/company profile.pdf",
-            # "assets/Men's Breakfast Poster.jpg",
+            # "assets/may-19/Ascent Institute - May & June programs.pdf",
+            # "assets/may-19/Ascent Institute Calendar - 2025.pdf",
+            # "assets/may-19/company profile.pdf",
+            "assets/Men's Breakfast Poster.jpg",
             # "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
             # "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
             # "assets/2025 Governance Trainings.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_pension = "RE: Invitation to Ascent Institute Professional Development Programs - May & June 2025"
+        subject_pension = "This Saturday’s Breakfast Will Change Your Leadership Game—Don’t Miss Out!"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
         text_template = load_email_template(
             "email-templates/to-send.txt")
         attachments = [
-            "assets/may-19/Ascent Institute - May & June programs.pdf",
-            "assets/may-19/Ascent Institute Calendar - 2025.pdf",
-            "assets/may-19/company profile.pdf",
-#             "assets/Men's Breakfast Poster.jpg",
+            # "assets/may-19/Ascent Institute - May & June programs.pdf",
+            # "assets/may-19/Ascent Institute Calendar - 2025.pdf",
+            # "assets/may-19/company profile.pdf",
+            "assets/Men's Breakfast Poster.jpg",
             # "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
             # "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
             # "assets/2025 Governance Trainings.pdf"
@@ -416,17 +416,17 @@ if __name__ == "__main__":
         """
                 * Always change here for testing purposes
         """
-        subject_pension = "RE: Invitation to Ascent Institute Professional Development Programs - May & June 2025"
+        subject_pension = "This Saturday’s Breakfast Will Change Your Leadership Game—Don’t Miss Out!"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
         text_template = load_email_template(
             "email-templates/to-send.txt")
         attachments = [
-            "assets/may-19/Ascent Institute - May & June programs.pdf",
-            "assets/may-19/Ascent Institute Calendar - 2025.pdf",
-            "assets/may-19/company profile.pdf",
-#             "assets/Men's Breakfast Poster.jpg",
+            # "assets/may-19/Ascent Institute - May & June programs.pdf",
+            # "assets/may-19/Ascent Institute Calendar - 2025.pdf",
+            # "assets/may-19/company profile.pdf",
+            "assets/Men's Breakfast Poster.jpg",
             # "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
             # "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
             # "assets/2025 Governance Trainings.pdf"
