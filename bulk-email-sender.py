@@ -376,7 +376,7 @@ if __name__ == "__main__":
         csv = "emails/may/may-19/governance_emails.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
-        csv = "emails/may/may-19/it_emails.csv"
+        csv = "emails/may/may-28/it_emails.csv"
         # csv = "testing.csv"
     else:
         print("Invalid environment")
@@ -428,10 +428,10 @@ if __name__ == "__main__":
         """
         subject_it = "Schools Are Ditching Spreadsheets for This Powerful New Platform"
         html_template = load_email_template(
-            "email-templates/to-send.html")
+            "email-templates/to-send-2.html")
 
         text_template = load_email_template(
-            "email-templates/to-send.txt")
+            "email-templates/to-send-2.txt")
         attachments = [
             # "assets/may-19/Ascent Institute - May & June programs.pdf",
             # "assets/may-19/Ascent Institute Calendar - 2025.pdf",
