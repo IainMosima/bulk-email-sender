@@ -137,8 +137,15 @@ class BulkEmailSender:
             if self.check_gmail_block(e):
                 logging.error(f"Gmail block detected: {e}")
                 logging.error("Pausing for 1 hour to avoid account suspension")
-                # Save state to resume later
+                self.session = None
                 return "BLOCKED"
+
+            # Check if it's a connection-related error
+            if isinstance(e, (smtplib.SMTPServerDisconnected, OSError, ConnectionError)):
+                logging.warning(f"Connection lost to {recipient_email}: {e}")
+                self.session = None  # Mark session as invalid
+                return False
+
             logging.error(f"Failed to send email to {recipient_email}: {e}")
             return False
 
@@ -369,8 +376,8 @@ if __name__ == "__main__":
         csv = "emails/may/may-19/governance_emails.csv"
         # csv = "testing.csv"
     elif args.env == 'it':
-        # csv = "emails/may/may-19/it_emails.csv"
-        csv = "testing.csv"
+        csv = "emails/may/may-19/it_emails.csv"
+        # csv = "testing.csv"
     else:
         print("Invalid environment")
         exit(1)
@@ -378,7 +385,10 @@ if __name__ == "__main__":
     # TODO: ALWAYS CHANGE THE HTML TEMPLATE AND TEXT TEMPLATE
     if args.env == 'pension':
         # subject_pension = "You’re Invited: Men’s Breakfast – Lead with Values in a Shifting World"
-        subject_pension = "This Saturday’s Breakfast Will Change Your Leadership Game—Don’t Miss Out!"
+        # subject_pension = "This Saturday’s Breakfast Will Change Your Leadership Game—Don’t Miss Out!"
+        # subject_pension = "Final Reminder: Seats filling fast!!"
+        subject_pension = "Schools Are Ditching Spreadsheets for This Powerful New PlatformSchools Are Ditching Spreadsheets for This Powerful New PlatformSchools Are Ditching Spreadsheets for This Powerful New PlatformSchools Are Ditching Spreadsheets for This Powerful New PlatformSchools Are Ditching Spreadsheets for This Powerful New PlatformSchools Are Ditching Spreadsheets for This Powerful New PlatformSchools Are Ditching Spreadsheets for This Powerful New Platform"
+
 
         html_template = load_email_template(
             "email-templates/to-send.html")
@@ -389,14 +399,14 @@ if __name__ == "__main__":
             # "assets/may-19/Ascent Institute - May & June programs.pdf",
             # "assets/may-19/Ascent Institute Calendar - 2025.pdf",
             # "assets/may-19/company profile.pdf",
-            "assets/Men's Breakfast Poster.jpg",
+            # "assets/Men's Breakfast Poster.jpg",
             # "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
             # "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
             # "assets/2025 Governance Trainings.pdf"
         ]
         results = email_sender(subject_pension, attachments, html_template, text_template)
     elif args.env == 'governance':
-        subject_pension = "This Saturday’s Breakfast Will Change Your Leadership Game—Don’t Miss Out!"
+        subject_governance = "Schools Are Ditching Spreadsheets for This Powerful New Platform"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
@@ -406,17 +416,17 @@ if __name__ == "__main__":
             # "assets/may-19/Ascent Institute - May & June programs.pdf",
             # "assets/may-19/Ascent Institute Calendar - 2025.pdf",
             # "assets/may-19/company profile.pdf",
-            "assets/Men's Breakfast Poster.jpg",
+            # "assets/Men's Breakfast Poster.jpg",
             # "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
             # "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
             # "assets/2025 Governance Trainings.pdf"
         ]
-        results = email_sender(subject_pension, attachments, html_template, text_template)
+        results = email_sender(subject_governance, attachments, html_template, text_template)
     else:
         """
                 * Always change here for testing purposes
         """
-        subject_pension = "This Saturday’s Breakfast Will Change Your Leadership Game—Don’t Miss Out!"
+        subject_it = "Schools Are Ditching Spreadsheets for This Powerful New Platform"
         html_template = load_email_template(
             "email-templates/to-send.html")
 
@@ -426,10 +436,10 @@ if __name__ == "__main__":
             # "assets/may-19/Ascent Institute - May & June programs.pdf",
             # "assets/may-19/Ascent Institute Calendar - 2025.pdf",
             # "assets/may-19/company profile.pdf",
-            "assets/Men's Breakfast Poster.jpg",
+#             "assets/Men's Breakfast Poster.jpg",
             # "assets/Enhancing Productivity for office professionals workshop _16th - 20th June 2025.pdf",
             # "assets/Nomination Form 16th to 20th June 2025 -Enhancing productivity for office professionals.pdf",
             # "assets/2025 Governance Trainings.pdf"
         ]
-        results = email_sender(subject_pension, attachments, html_template, text_template)
+        results = email_sender(subject_it, attachments, html_template, text_template)
     print(f"Email campaign summary: {results}")

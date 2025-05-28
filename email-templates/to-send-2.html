@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The School Management Revolution Is Here!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .poster {
+      width: 100%;
+      text-align: center;
+      background-color: #f9f9f9;
+    }
+    .poster img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .header {
+      background-color: #233D94;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      border-bottom: 5px solid #CFA448;
+    }
+    .header img {
+      max-width: 220px;
+      margin-bottom: 15px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+    .content {
+      background-color: #fff;
+      padding: 30px;
+    }
+    .greeting {
+      font-size: 18px;
+      font-weight: bold;
+      color: #233D94;
+      margin-bottom: 20px;
+    }
+    .revolution-box {
+      background: linear-gradient(135deg, rgba(35, 61, 148, 0.1), rgba(207, 164, 72, 0.1));
+      border-left: 5px solid #CFA448;
+      padding: 25px;
+      margin: 25px 0;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .revolution-box h2 {
+      color: #233D94;
+      font-size: 24px;
+      margin: 0 0 10px 0;
+      font-weight: bold;
+    }
+    .highlight-box {
+      background-color: rgba(35, 61, 148, 0.05);
+      border-left: 5px solid #CFA448;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 3px;
+    }
+    .highlight-box p {
+      margin: 0;
+      font-size: 16px;
+    }
+    .resources-section {
+      background-color: #f8f8f8;
+      padding: 25px;
+      border-radius: 5px;
+      margin: 25px 0;
+      text-align: center;
+    }
+    .resource-link {
+      display: block;
+      background-color: white;
+      border: 2px solid #233D94;
+      padding: 15px 20px;
+      margin: 15px 0;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #233D94;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .resource-link:hover {
+      background-color: #233D94;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(35, 61, 148, 0.2);
+    }
+    .trust-badge {
+      background-color: rgba(207, 164, 72, 0.1);
+      padding: 15px;
+      border-radius: 5px;
+      margin: 20px 0;
+      text-align: center;
+      border: 1px solid #CFA448;
+    }
+    .benefits-list {
+      background-color: rgba(35, 61, 148, 0.05);
+      padding: 25px;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    .benefits-list ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    .benefits-list li {
+      margin: 15px 0;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .tagline-box {
+      background-color: #233D94;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .cta-section {
+      background: linear-gradient(135deg, #233D94, #1a2d7a);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      border-radius: 5px;
+      margin: 30px 0;
+    }
+    .cta-section h3 {
+      margin: 0 0 15px 0;
+      font-size: 20px;
+    }
+    .cta-section p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .cta-button {
+      background-color: #CFA448;
+      color: #233D94;
+      padding: 18px 35px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      display: inline-block;
+      margin: 20px 0;
+      transition: 0.3s;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 2px solid #CFA448;
+    }
+    .cta-button:hover {
+      background-color: white;
+      color: #233D94;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .urgency-text {
+      background-color: #fff3cd;
+      border: 1px solid #ffeaa7;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .urgency-text p {
+      margin: 0;
+      color: #856404;
+      font-weight: 600;
+    }
+    .signature {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+    }
+    .signature .team-name {
+      font-size: 18px;
+      font-weight: bold;
+      color: #233D94;
+    }
+    .signature .company-name {
+      font-style: italic;
+      color: #CFA448;
+      font-size: 16px;
+    }
+    .footer {
+      background-color: #233D94;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    .footer a {
+      color: white;
+      text-decoration: underline;
+    }
+    .checkmark {
+      color: #28a745;
+      font-weight: bold;
+      margin-right: 10px;
+      font-size: 18px;
+    }
+    .fire-emoji {
+      font-size: 20px;
+      margin-left: 5px;
+    }
+    .arrow-emoji {
+      font-size: 20px;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="poster">
+      <img src="https://da9cgnz0cnbi2.cloudfront.net/shule-sync.webp" alt="ShuleSync Poster" />
+    </div>
+    <div class="header">
+      <img src="https://da9cgnz0cnbi2.cloudfront.net/logo-2.png" alt="Ascent Institute Logo" />
+      <h1>🚨 The #1 School Management Tool in East Africa? See Why Everyone's Talking</h1>
+    </div>
+    <div class="content">
+      <p class="greeting">Greetings from Ascent Institute,</p>
+
+      <div class="revolution-box">
+        <h2>🚀 The School Management Revolution Is Happening — Are You In?</h2>
+      </div>
+
+      <div class="highlight-box">
+        <p>Managing a school today shouldn't feel like a juggling act. That's why we created <strong>ShuleSync</strong> — the <strong style="color: #CFA448;">#1 web-based school management platform</strong> tailored specifically for East African schools.</p>
+      </div>
+
+      <div class="trust-badge">
+        <p><strong>Already trusted by institutions across Kenya, Uganda, and Tanzania</strong>, ShuleSync is helping schools:</p>
+      </div>
+
+      <div class="benefits-list">
+        <ul>
+          <li><span class="checkmark">✅</span> Slash admin workload by up to 70%</li>
+          <li><span class="checkmark">✅</span> Collect school fees faster with mobile money integrations</li>
+          <li><span class="checkmark">✅</span> Keep parents happy and engaged through real-time updates</li>
+          <li><span class="checkmark">✅</span> Auto-generate CBC-compliant report cards & student rankings</li>
+        </ul>
+      </div>
+
+      <div class="resources-section">
+        <h3 style="color: #233D94; margin-top: 0;">📚 Learn More About Our Solutions</h3>
+
+        <a href="https://da9cgnz0cnbi2.cloudfront.net/shule-sync.pdf" target="_blank" class="resource-link">
+          📄 Download ShuleSync Overview
+        </a>
+
+        <a href="https://da9cgnz0cnbi2.cloudfront.net/ascent-technologies.pdf" target="_blank" class="resource-link">
+          🏢 View Ascent Technologies Portfolio
+        </a>
+      </div>
+
+      <div class="tagline-box">
+        No more paperwork. No more chaos. Just smart schooling, simplified.
+      </div>
+
+      <div class="cta-section">
+        <h3><span class="arrow-emoji">👉</span> Want in early? Join our Early Access List now</h3>
+        <p>and be among the first to experience the future of school management.</p>
+        <a href="https://event-checkout.vercel.app/register-waiting-list/49877fd5-9fdf-4b82-a046-0d6cdb09b7c4" class="cta-button">
+          Click Here to Reserve Your Spot<span class="fire-emoji">🔥</span>
+        </a>
+      </div>
+
+      <div class="urgency-text">
+        <p><strong>But act fast</strong> — slots are limited, and schools are joining daily. Let your school be among the first to unlock smarter operations.</p>
+      </div>
+
+      <div class="signature">
+        <p>To your school's success,</p>
+        <p class="team-name">The ShuleSync Team</p>
+        <p class="company-name">Ascent Institute</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Ascent Institute</strong></p>
+      <p>📞 +254 794-141-414 | 📧 info@ascent-institute.com</p>
+      <p>🌍 <a href="http://www.ascent-institute.com">www.ascent-institute.com</a></p>
+      <p style="font-size: 12px; margin-top: 15px; opacity: 0.8;">
+        <a href="#" style="color: #CFA448;">Unsubscribe</a> | <a href="#" style="color: #CFA448;">Privacy Policy</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
