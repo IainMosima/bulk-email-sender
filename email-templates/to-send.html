@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ascent Institute - Stakeholder Engagement & Strategic Communication Masterclass</title>
+    <title>Ascent Institute - Customer Service Excellence Masterclass</title>
     <style>
         body {
             margin: 0;
@@ -21,22 +21,29 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
 
+        .logo-section {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #ffffff;
+        }
+
+        .logo-section img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+        }
+
         .header {
-            background-color: #233D94;
+            background-color: #3B5998;
             color: white;
             text-align: center;
             padding: 30px 20px;
-            border-bottom: 5px solid #CFA448;
-        }
-
-        .header img {
-            max-width: 220px;
-            margin-bottom: 15px;
         }
 
         .header h1 {
             margin: 0;
             font-size: 24px;
+            font-weight: bold;
             letter-spacing: 1px;
         }
 
@@ -46,216 +53,563 @@
         }
 
         .greeting {
+            color: #3B5998;
             font-size: 18px;
             font-weight: bold;
-            color: #233D94;
+            margin-bottom: 20px;
         }
 
-        .highlight-box {
-            background-color: rgba(35, 61, 148, 0.05);
-            border-left: 5px solid #CFA448;
-            padding: 15px;
+        .intro-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #D4AF37;
+            padding: 20px;
             margin: 20px 0;
-        }
-
-        .event-details {
-            background-color: #f8f8f8;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-
-        .event-details p {
-            margin: 10px 0;
-            font-size: 16px;
-        }
-
-        .tagline {
-            font-style: italic;
-            text-align: center;
-            margin: 25px 0;
-            color: #CFA448;
-            font-size: 18px;
-            font-weight: 500;
-            padding: 10px;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
         }
 
         .section-title {
-            color: #233D94;
-            border-bottom: 2px solid #CFA448;
-            padding-bottom: 8px;
-            font-size: 20px;
-            margin-top: 30px;
+            color: #3B5998;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 30px 0 20px 0;
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 5px;
         }
 
-        ul {
-            padding-left: 20px;
+        .event-details {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
         }
 
-        li {
+        .detail-item {
+            margin: 8px 0;
+            font-weight: bold;
+        }
+
+        .stats-box {
+            background-color: #f1f3f4;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .objectives-list {
+            margin: 20px 0;
+        }
+
+        .objective-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 12px 0;
+        }
+
+        .checkmark {
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .target-audience {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .audience-item {
+            background-color: #f8f9fa;
+            border-left: 3px solid #3B5998;
+            padding: 15px;
+            font-size: 14px;
+            min-height: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .inclusions-list {
+            margin: 20px 0;
+        }
+
+        .inclusion-item {
+            display: flex;
+            align-items: center;
             margin: 10px 0;
         }
 
-        .featured-section {
-            background-color: rgba(35, 61, 148, 0.05);
-            padding: 15px;
-            border-radius: 5px;
-            margin: 25px 0;
+        .inclusion-icon {
+            color: #D4AF37;
+            margin-right: 10px;
+            font-size: 16px;
         }
 
-        .featured-section ul {
-            list-style-type: none;
-            padding-left: 10px;
-        }
-
-        .action-section {
-            text-align: center;
-            background-color: #f8f8f8;
+        .payment-options {
+            background-color: #e8f5e8;
+            border: 2px solid #28a745;
             padding: 20px;
-            border-radius: 5px;
-            margin: 30px 0 20px 0;
+            margin: 15px 0;
+            border-radius: 8px;
         }
 
-        .button {
-            background-color: #CFA448;
-            color: #233D94;
-            padding: 14px 30px;
-            text-decoration: none;
+        .payment-title {
             font-weight: bold;
-            border-radius: 30px;
+            margin-bottom: 15px;
+            color: #28a745;
+            font-size: 16px;
+        }
+
+        .payment-item {
+            margin: 12px 0;
+            padding: 10px 15px;
+            color: #28a745;
+            font-weight: bold;
+            background-color: #f0f9f0;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+
+        .note {
+            font-style: italic;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .cta-section {
+            background-color: #f1f3f4;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+
+        .cta-title {
+            color: #3B5998;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .register-button {
+            background-color: #D4AF37;
+            color: #3B5998;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 25px;
             display: inline-block;
-            margin: 20px 10px;
-            transition: 0.3s;
+            margin: 20px 0;
             font-size: 16px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .button:hover {
-            background-color: #233D94;
-            color: #fff;
         }
 
         .contact-info {
-            text-align: center;
-            margin: 15px 0;
+            margin: 20px 0;
         }
 
-        .quote {
-            font-style: italic;
-            text-align: center;
-            margin: 30px 0;
-            color: #555;
-            padding: 0 20px;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
         }
 
-        .signature {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+        .contact-icon {
+            margin-right: 10px;
+            font-size: 16px;
         }
 
         .footer {
-            background-color: #233D94;
+            background-color: #3B5998;
             color: white;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact {
+            margin: 10px 0;
             font-size: 14px;
         }
 
-        .footer a {
+        .footer-website {
+            margin-top: 15px;
+        }
+
+        .footer-website a {
             color: white;
             text-decoration: underline;
         }
 
-        .emoji {
-            font-size: 18px;
-            margin-right: 5px;
+        .signature {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        a {
+            color: #3B5998;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .thematic-area {
+            margin-bottom: 20px;
+        }
+
+        .thematic-title {
+            font-weight: bold;
+            color: #3B5998;
+            margin-bottom: 5px;
+        }
+
+        .thematic-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .thematic-list li {
+            margin-bottom: 3px;
+        }
+
+        .transformation-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .transformation-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 0;
+                box-shadow: none;
+            }
+
+            .target-audience {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .transformation-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
+    <!-- Logo Section -->
+    <div class="logo-section">
+         <img src="https://da9cgnz0cnbi2.cloudfront.net/logo-3.png" alt="Ascent Institute Logo">
+    </div>
+
     <div class="header">
-        <img src="https://da9cgnz0cnbi2.cloudfront.net/logo-2.png" alt="Ascent Institute Logo">
-        <h1>STRATEGIC COMMUNICATION MASTERCLASS</h1>
+        <h1>CUSTOMER SERVICE EXCELLENCE MASTERCLASS</h1>
     </div>
 
     <div class="content">
-        <p class="greeting">Greetings From Ascent Institute!</p>
+        <div class="greeting">Greetings From Ascent Institute,</div>
 
-        <div class="highlight-box">
-            <p>We are pleased to invite you to <strong>"The Influential Leader: Stakeholder Engagement & Strategic Communication Masterclass"</strong> – a powerful 5-day training designed to equip professionals with the tools to build trust, navigate resistance, and drive alignment in complex stakeholder environments.</p>
+        <div class="intro-box">
+            Are you ready to transform your customer service from ordinary to extraordinary and drive unprecedented organizational growth?
+            <br><br>
+            We are thrilled to invite you to our Masterclass in Customer Service Excellence - a comprehensive 5-day workshop designed to revolutionize how you deliver world-class customer experiences in today's competitive marketplace.
         </div>
 
+        <div class="section-title">🗓️ Event Details</div>
         <div class="event-details">
-            <p><span class="emoji">📅</span> <strong>Date:</strong> 3rd-6th June 2025</p>
-            <p><span class="emoji">📍</span> <strong>Venue:</strong> Lake Naivasha Resort</p>
-            <p><span class="emoji">💰</span> <strong>Investment:</strong> Ksh 65,000</p>
+            <div class="detail-item">Dates: June 23rd - 27th, 2025</div>
+            <div class="detail-item">Location: Eseriani The Resort, Naivasha, Kenya</div>
+            <div class="detail-item">Investment: KES 55,000 per participant (Exclusive of VAT)</div>
         </div>
 
-        <div class="tagline">
-            "Build Trust, Navigate Resistance, Drive Alignment"
+        <div class="section-title">🚀 Why Customer Service Excellence Matters Now</div>
+        <div>
+            <p>In today's rapidly transforming customer service landscape, exceptional service delivery is no longer optional—it's essential for survival and growth. Organizations investing in superior customer service practices achieve:</p>
+
+            <div class="stats-box">
+                <div class="stat-item">60% higher customer retention rates</div>
+                <div class="stat-item">50% improved revenue growth</div>
+                <div class="stat-item">40% increase in customer lifetime value</div>
+                <div class="stat-item">95% focus on customer satisfaction as a critical business priority</div>
+            </div>
+
+            <p>Join the 85% of high-performing companies that prioritize strategic customer experience management as their competitive advantage.</p>
         </div>
 
-        <h3 class="section-title">Why Attend?</h3>
-        <p>In today's fast-moving landscape, technical skills alone aren't enough. Influence, empathy, and communication are the real tools of transformation. This workshop will help you:</p>
-        <ul>
-            <li><strong>✔</strong> Engage stakeholders effectively across government, community, and private sectors</li>
-            <li><strong>✔</strong> Resolve conflict and resistance before it escalates</li>
-            <li><strong>✔</strong> Communicate complex change with clarity and confidence</li>
-            <li><strong>✔</strong> Build coalitions for long-term impact</li>
-        </ul>
+        <div class="section-title">🎯 Master 10 Strategic Thematic Areas</div>
 
-        <h3 class="section-title">Who Should Attend?</h3>
-        <ul>
-            <li>Project Managers navigating multi-stakeholder initiatives</li>
-            <li>Government Officials managing devolution and partnerships</li>
-            <li>CSR & ESG Leads overseeing community impact programs</li>
-            <li>Procurement, Communication, and Operations Officers</li>
-            <li>Entrepreneurs seeking investor or partner buy-in</li>
-        </ul>
-
-        <h3 class="section-title">Training Highlights</h3>
-        <div class="featured-section">
-            <ul>
-                <li><strong>✅</strong> Stakeholder Mapping (IRMA Tool)</li>
-                <li><strong>✅</strong> Crisis Communication Drills (real-world case studies)</li>
-                <li><strong>✅</strong> Navigating Cultural & Political Dynamics</li>
-                <li><strong>✅</strong> Simulation Exercises for High-Stakes Engagements</li>
-                <li><strong>✅</strong> Certification & Action Planning</li>
+        <div class="thematic-area">
+            <div class="thematic-title">1. Customer Experience Strategy</div>
+            <ul class="thematic-list">
+                <li>Advanced customer journey mapping techniques</li>
+                <li>Touchpoint optimization and strategic service planning</li>
+                <li>Customer satisfaction maximization frameworks</li>
             </ul>
         </div>
 
-        <div class="action-section">
-            <h3 class="section-title" style="text-align: center; border-bottom: none;">Secure Your Slot Today – Limited Seats Available</h3>
-            <p>🚀 Don't wait for conflict to force change — equip yourself now to lead with clarity, confidence, and impact.</p>
-            <p>Register today and take your stakeholder engagement skills to the next level.</p>
+        <div class="thematic-area">
+            <div class="thematic-title">2. Communication Excellence</div>
+            <ul class="thematic-list">
+                <li>Professional communication mastery</li>
+                <li>Active listening skills development</li>
+                <li>Multi-channel customer interaction strategies</li>
+            </ul>
+        </div>
 
-            <a href="http://www.ascent-institute.com" class="button">Register Now</a>
+        <div class="thematic-area">
+            <div class="thematic-title">3. Complaint Resolution & Service Recovery</div>
+            <ul class="thematic-list">
+                <li>Advanced problem-solving methodologies</li>
+                <li>De-escalation techniques for challenging situations</li>
+                <li>Transform challenges into customer loyalty opportunities</li>
+            </ul>
+        </div>
 
-            <div class="contact-info">
-                <p><span class="emoji">📞</span> <strong>Call:</strong> +254 794 141414</p>
-                <p><span class="emoji">📧</span> <strong>Email:</strong> info@ascent-institute.com</p>
-                <p><span class="emoji">🌐</span> <strong>Visit:</strong> <a href="http://www.ascent-institute.com" style="color: #233D94;">www.ascent-institute.com</a></p>
+        <div class="thematic-area">
+            <div class="thematic-title">4. Digital Customer Service</div>
+            <ul class="thematic-list">
+                <li>Modern customer service technology integration</li>
+                <li>Omnichannel support systems implementation</li>
+                <li>Digital engagement platform optimization</li>
+            </ul>
+        </div>
+
+        <div class="thematic-area">
+            <div class="thematic-title">5. Customer Relationship Management</div>
+            <ul class="thematic-list">
+                <li>Relationship building excellence</li>
+                <li>Customer retention strategy development</li>
+                <li>Loyalty program management for long-term success</li>
+            </ul>
+        </div>
+
+        <div class="thematic-area">
+            <div class="thematic-title">6. Service Quality Management</div>
+            <ul class="thematic-list">
+                <li>Service standards development frameworks</li>
+                <li>Performance measurement and analytics</li>
+                <li>Continuous improvement methodologies</li>
+            </ul>
+        </div>
+
+        <div class="thematic-area">
+            <div class="thematic-title">7. Team Leadership & Training</div>
+            <ul class="thematic-list">
+                <li>Customer service team management excellence</li>
+                <li>Coaching techniques for peak performance</li>
+                <li>Performance optimization strategies</li>
+            </ul>
+        </div>
+
+        <div class="thematic-area">
+            <div class="thematic-title">8. Cultural Sensitivity & Diversity</div>
+            <ul class="thematic-list">
+                <li>Inclusive service delivery approaches</li>
+                <li>Cross-cultural communication mastery</li>
+                <li>Diverse customer needs management</li>
+            </ul>
+        </div>
+
+        <div class="thematic-area">
+            <div class="thematic-title">9. Crisis Management & Reputation Protection</div>
+            <ul class="thematic-list">
+                <li>Navigate challenging service situations</li>
+                <li>Manage service failures effectively</li>
+                <li>Protect and enhance organizational reputation</li>
+            </ul>
+        </div>
+
+        <div class="thematic-area">
+            <div class="thematic-title">10. Innovation & Service Transformation</div>
+            <ul class="thematic-list">
+                <li>Emerging customer service trends</li>
+                <li>Service excellence transformation strategies</li>
+                <li>Future-ready customer experience frameworks</li>
+            </ul>
+        </div>
+
+        <div class="section-title">🎓 Your Transformation Takeaways</div>
+        <div class="transformation-list">
+            <div class="transformation-item">
+                <span class="checkmark">✅</span>
+                <span>Master advanced customer service strategies and excellence frameworks</span>
+            </div>
+            <div class="transformation-item">
+                <span class="checkmark">✅</span>
+                <span>Develop digital transformation expertise for service efficiency</span>
+            </div>
+            <div class="transformation-item">
+                <span class="checkmark">✅</span>
+                <span>Learn strategic planning and customer experience optimization</span>
+            </div>
+            <div class="transformation-item">
+                <span class="checkmark">✅</span>
+                <span>Explore leadership skills for customer service team management</span>
+            </div>
+            <div class="transformation-item">
+                <span class="checkmark">✅</span>
+                <span>Understand complaint resolution and service recovery best practices</span>
+            </div>
+            <div class="transformation-item">
+                <span class="checkmark">✅</span>
+                <span>Build relationship management and retention competencies</span>
+            </div>
+            <div class="transformation-item">
+                <span class="checkmark">✅</span>
+                <span>Discover innovative approaches to modern service delivery</span>
+            </div>
+            <div class="transformation-item">
+                <span class="checkmark">✅</span>
+                <span>Create implementation strategies for organizational transformation</span>
             </div>
         </div>
 
-        <div class="quote">
-            "The difference between stalled projects and national impact? Great Stakeholder engagement."
+        <div class="section-title">👥 Perfect For:</div>
+        <div class="target-audience">
+            <div class="audience-item">Customer Service Managers & Directors</div>
+            <div class="audience-item">Customer Experience Officers</div>
+            <div class="audience-item">Call Center Managers & Supervisors</div>
+            <div class="audience-item">Front Office Managers & Coordinators</div>
+            <div class="audience-item">Sales & Marketing Professionals</div>
+            <div class="audience-item">Retail Managers & Store Supervisors</div>
+            <div class="audience-item">Hospitality & Tourism Professionals</div>
+            <div class="audience-item">Banking & Financial Services Staff</div>
+            <div class="audience-item">Healthcare Service Coordinators</div>
+            <div class="audience-item">Government Service Officers</div>
+            <div class="audience-item">NGO Client Relations Managers</div>
+            <div class="audience-item">Small Business Owners & Entrepreneurs</div>
+        </div>
+
+        <div class="section-title">💼 What's Included in Your Investment:</div>
+        <div class="inclusions-list">
+            <div class="inclusion-item">
+                <span class="inclusion-icon">💼</span>
+                <span>Expert facilitation from industry leaders</span>
+            </div>
+            <div class="inclusion-item">
+                <span class="inclusion-icon">📜</span>
+                <span>Workshop certificate upon completion</span>
+            </div>
+            <div class="inclusion-item">
+                <span class="inclusion-icon">📚</span>
+                <span>Comprehensive training materials</span>
+            </div>
+            <div class="inclusion-item">
+                <span class="inclusion-icon">🍽️</span>
+                <span>Daily tea/coffee breaks and lunch</span>
+            </div>
+            <div class="inclusion-item">
+                <span class="inclusion-icon">🤝</span>
+                <span>Networking opportunities with industry peers</span>
+            </div>
+            <div class="inclusion-item">
+                <span class="inclusion-icon">📋</span>
+                <span>Implementation strategies for immediate application</span>
+            </div>
+        </div>
+
+        <div class="section-title">📋 Secure Your Transformation Today</div>
+        <div class="registration-box">
+            <div class="deadline">Registration Deadline: June 18th, 2025</div>
+
+            <p><strong>How to Register:</strong></p>
+            <p><strong>Email Registration:</strong> Send participant names and designations to <a href="mailto:info@ascent-institute.com">info@ascent-institute.com</a></p>
+
+            <div class="payment-options">
+                <div class="payment-title">Payment Options:</div>
+                <div class="payment-item">
+                    <strong>Bank Transfer:</strong><br>
+                    Account Name: Ascent Institute Limited<br>
+                    Account Number: 03003286761250<br>
+                    Bank: I&M Bank
+                </div>
+                <div class="payment-item">
+                    <strong>Cheque Payment:</strong><br>
+                    Payable to: Ascent Institute Limited
+                </div>
+            </div>
+
+            <div class="note">Note: Registration fee excludes VAT, transport, and accommodation</div>
+        </div>
+
+        <div class="section-title">🌟 Why Choose This Masterclass?</div>
+        <p>In an era where customer experience can make or break organizational performance, exceptional service delivery serves as the cornerstone of successful enterprises. This masterclass empowers you to:</p>
+
+        <div class="objectives-list">
+            <div class="objective-item">
+                <span class="checkmark">✅</span>
+                <span>Lead organizational growth through customer excellence</span>
+            </div>
+            <div class="objective-item">
+                <span class="checkmark">✅</span>
+                <span>Drive customer loyalty and retention</span>
+            </div>
+            <div class="objective-item">
+                <span class="checkmark">✅</span>
+                <span>Optimize service delivery processes for maximum impact</span>
+            </div>
+            <div class="objective-item">
+                <span class="checkmark">✅</span>
+                <span>Implement strategic frameworks for sustainable success</span>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <div class="cta-title">📞 Ready to Transform Your Customer Service?</div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>Call: +254 794-141 414</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>Email: <a href="mailto:info@ascent-institute.com">info@ascent-institute.com</a></span>
+                </div>
+            </div>
+
+            <p>Don't let mediocre customer service limit your organization's potential. Join us at the beautiful Eseriani Resort in Naivasha and master the art of exceptional customer service that drives real business results.</p>
+
+            <p><strong>Limited seats available - Register today!</strong></p>
+
+            <a href="mailto:info@ascent-institute.com?subject=Customer Service Excellence Masterclass Registration" class="register-button">Register today</a>
         </div>
 
         <div class="signature">
-            <p><strong>Best regards,<br>Ascent Institute</strong></p>
+            <p><strong>Best regards,</strong></p>
+            <p>Ascent Institute Limited<br>Equipping People, Transforming The World</p>
+            <br>
+            <p>Transform your customer service excellence and watch your organization soar to new heights of success and customer loyalty.</p>
         </div>
     </div>
 
     <div class="footer">
-        <p>Ascent Institute</p>
-        <p>Email: info@ascent-institute.com | Phone: +254 794 141414</p>
-        <p><a href="http://www.ascent-institute.com">www.ascent-institute.com</a></p>
+        <div class="footer-title">Ascent Institute</div>
+        <div class="footer-contact">Email: <a href="mailto:info@ascent-institute.com" style="color: white; text-decoration: underline;">info@ascent-institute.com</a> | Phone: +254 794-141 414</div>
+        <div class="footer-website">
+            <a href="http://www.ascent-institute.com" target="_blank">www.ascent-institute.com</a>
+        </div>
     </div>
 </div>
 </body>
